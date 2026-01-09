@@ -1,3 +1,0 @@
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/build/CMakeFiles/renderer.dir
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/build/CMakeFiles/edit_cache.dir
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/build/CMakeFiles/rebuild_cache.dir

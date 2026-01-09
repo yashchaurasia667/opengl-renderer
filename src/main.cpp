@@ -6,15 +6,20 @@
 #include <iostream>
 
 #include <shader.h>
+#include <camera.h>
 #include <vertexBuffer.h>
+#include <indexBuffer.h>
 #include <vertexBufferLayout.h>
 #include <vertexArray.h>
 #include <utils.h>
 
 const unsigned int SCR_WIDTH = 800, SCR_HEIGHT = 600;
+Camera camera(glm::vec3(0.0f), 45.0f, 0.1f, 2.5f);
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
+void mouseCallback(GLFWwindow *window, double xposin, double yposin);
+void scrollCallback(GLFWwindow *window, double xoffset, double yoffset);
 
 int main()
 {
@@ -41,18 +46,28 @@ int main()
     return -1;
   }
   glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
-  glEnable(GL_DEPTH_TEST);
-  glClearColor(0.5f, 0.3f, 0.2f, 1.0f);
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+  glfwSetCursorPosCallback(window, mouseCallback);
+  glfwSetScrollCallback(window, scrollCallback);
+
+  glCall(glEnable(GL_DEPTH_TEST));
+  glCall(glClearColor(0.5f, 0.3f, 0.2f, 1.0f));
 
   {
     float vertices[] = {
-        -0.5f, -0.5f, 0.0f,
-        0.5f, -0.5f, 0.0f,
-        0.0f, 0.5f, 0.0f};
+        -0.5f, -0.5f, 0.0,
+        0.5f, -0.5f, 0.0,
+        0.5f, 0.5f, 0.0,
+        -0.5f, 0.5f, 0.0};
+
+    unsigned int indices[] = {
+        0, 1, 2,
+        0, 2, 3};
 
     Shader def("../shaders/default.vs", "../shaders/default.fs");
     VertexArray vao;
-    VertexBuffer vbo(3 * 3, vertices, GL_STATIC_DRAW);
+    VertexBuffer vbo(4 * 3, vertices, GL_STATIC_DRAW);
+    IndexBuffer ibo(3 * 2, indices, GL_STATIC_DRAW);
     VertexBufferLayout layout;
 
     layout.push<float>(3);
@@ -60,11 +75,14 @@ int main()
 
     while (!glfwWindowShouldClose(window))
     {
+      camera.updateFrame();
       processInput(window);
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+      glCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 
       def.bind();
-      glCall(glDrawArrays(GL_TRIANGLES, 0, 3));
+
+      glCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
+      // glCall(glDrawArrays(GL_TRIANGLES, 0, 3));
 
       glfwPollEvents();
       glfwSwapBuffers(window);
@@ -84,4 +102,19 @@ void processInput(GLFWwindow *window)
 {
   if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     glfwSetWindowShouldClose(window, true);
+  camera.processMovement(window);
+}
+
+void mouseCallback(GLFWwindow *window, double xposin, double yposin)
+{
+  float x = static_cast<float>(xposin);
+  float y = static_cast<float>(yposin);
+  camera.updateView(x, y);
+}
+
+void scrollCallback(GLFWwindow *window, double xoffset, double yoffset)
+{
+  float x = static_cast<float>(xoffset);
+  float y = static_cast<float>(yoffset);
+  camera.updateZoom(x, y);
 }

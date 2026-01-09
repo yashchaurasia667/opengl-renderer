@@ -12,5 +12,7 @@ public:
   VertexArray();
   ~VertexArray();
 
+  void bind();
+  void unbind();
   void addBuffer(VertexBuffer &vb, VertexBufferLayout &layout);
 };

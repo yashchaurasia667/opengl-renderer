@@ -11,7 +11,7 @@ IndexBuffer::IndexBuffer() : ID(0)
 
 IndexBuffer::IndexBuffer(int count, void *data, unsigned int usage) : IndexBuffer()
 {
-  glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(float), data, usage));
+  glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(unsigned int), data, usage));
 }
 
 IndexBuffer::~IndexBuffer()
@@ -31,5 +31,5 @@ void IndexBuffer::unbind() const
 
 void IndexBuffer::setData(int count, void *data, unsigned int usage)
 {
-  glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(float), data, usage));
+  glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(unsigned int), data, usage));
 }

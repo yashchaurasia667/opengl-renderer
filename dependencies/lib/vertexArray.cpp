@@ -16,6 +16,16 @@ VertexArray::~VertexArray()
   glCall(glDeleteVertexArrays(1, &ID));
 }
 
+void VertexArray::bind()
+{
+  glCall(glBindVertexArray(ID));
+}
+
+void VertexArray::unbind()
+{
+  glCall(glBindVertexArray(0));
+}
+
 void VertexArray::addBuffer(VertexBuffer &vb, VertexBufferLayout &layout)
 {
   const std::vector<struct Attribute> *elements = layout.getElements();
