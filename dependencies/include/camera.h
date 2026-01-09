@@ -20,7 +20,7 @@ private:
   bool firstMouse;
 
 public:
-  Camera::Camera(glm::vec3 pos, float fov, float sensitivity, float speed);
+  Camera(glm::vec3 pos, float fov, float sensitivity, float speed);
 
   glm::mat4 getViewMatrix();
   float getFov();

@@ -55,16 +55,16 @@ int main()
 
   {
     float vertices[] = {
-        -0.5f, -0.5f, 0.0,
-        0.5f, -0.5f, 0.0,
-        0.5f, 0.5f, 0.0,
-        -0.5f, 0.5f, 0.0};
+        -0.5f, -0.5f, -0.5,
+        0.5f, -0.5f, -0.5,
+        0.5f, 0.5f, -0.5,
+        -0.5f, 0.5f, -0.5};
 
     unsigned int indices[] = {
         0, 1, 2,
         0, 2, 3};
 
-    Shader def("../shaders/default.vs", "../shaders/default.fs");
+    Shader def("../shaders/cube.vs", "../shaders/default.fs");
     VertexArray vao;
     VertexBuffer vbo(4 * 3, vertices, GL_STATIC_DRAW);
     IndexBuffer ibo(3 * 2, indices, GL_STATIC_DRAW);
@@ -80,6 +80,13 @@ int main()
       glCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 
       def.bind();
+      glm::mat4 model = glm::mat4(1.0f);
+      glm::mat4 view = camera.getViewMatrix();
+      glm::mat4 projection = glm::perspective(camera.getFov(), 16.0f / 9.0f, 0.1f, 100.0f);
+
+      def.setMat4("model", model);
+      def.setMat4("view", view);
+      def.setMat4("projection", projection);
 
       glCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
       // glCall(glDrawArrays(GL_TRIANGLES, 0, 3));

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <glm/gtc/type_ptr.hpp>
 #include <glad/glad.h>
 
 class Shader
@@ -17,4 +18,10 @@ public:
 
   void bind();
   void unbind();
+
+  void setInt(const char *name, int data);
+  void setFloat(const char *name, float data);
+  void setBool(const char *name, bool data);
+  void setVec3(const char *name, glm::vec3 data);
+  void setMat4(const char *name, glm::mat4 data);
 };

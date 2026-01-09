@@ -49,6 +49,10 @@ void Camera::processMovement(GLFWwindow *window)
     pos -= glm::normalize(glm::cross(front, up)) * cameraSpeed;
   if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     pos += glm::normalize(glm::cross(front, up)) * cameraSpeed;
+  if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+    pos += up * cameraSpeed;
+  if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+    pos -= up * cameraSpeed;
 }
 
 void Camera::updateView(float xpos, float ypos)
@@ -62,6 +66,9 @@ void Camera::updateView(float xpos, float ypos)
 
   float xoffset = xpos - lastX;
   float yoffset = lastY - ypos;
+  lastX = xpos;
+  lastY = ypos;
+
   xoffset *= sensitivity;
   yoffset *= sensitivity;
 

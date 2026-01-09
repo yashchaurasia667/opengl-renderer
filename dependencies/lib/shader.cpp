@@ -98,3 +98,33 @@ void Shader::unbind()
 {
   glCall(glUseProgram(0));
 }
+
+void Shader::setInt(const char *name, int data)
+{
+  unsigned int loc = glGetUniformLocation(ID, name);
+  glCall(glUniform1i(loc, data));
+}
+
+void Shader::setFloat(const char *name, float data)
+{
+  unsigned int loc = glGetUniformLocation(ID, name);
+  glCall(glUniform1f(loc, data));
+}
+
+void Shader::setBool(const char *name, bool data)
+{
+  unsigned int loc = glGetUniformLocation(ID, name);
+  glCall(glUniform1i(loc, data));
+}
+
+void Shader::setVec3(const char *name, glm::vec3 data)
+{
+  unsigned int loc = glGetUniformLocation(ID, name);
+  glCall(glUniform3fv(loc, 1, glm::value_ptr(data)));
+}
+
+void Shader::setMat4(const char *name, glm::mat4 data)
+{
+  unsigned int loc = glGetUniformLocation(ID, name);
+  glCall(glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(data)));
+}
