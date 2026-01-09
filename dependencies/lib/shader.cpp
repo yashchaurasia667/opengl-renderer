@@ -1,29 +1,25 @@
 #include "shader.h"
 #include <utils.h>
 
+#include <sstream>
 #include <fstream>
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-const char *Shader::getShaderSource(const char *path)
+string Shader::getShaderSource(const char *path)
 {
-  ifstream shader_file{path};
+  ifstream shader_file(path);
   if (!shader_file)
   {
     cout << "ERROR::SHADER::" << path << "::NOT SUCCESSFULLY READ" << endl;
     return nullptr;
   }
 
-  string source;
-  string line;
-  while (getline(shader_file, line))
-    source + "\n" + line;
-  shader_file.close();
-
-  const char *c_source = source.c_str();
-  return c_source;
+  stringstream buffer;
+  buffer << shader_file.rdbuf();
+  string source = buffer.str();
+  return source;
 }
 
 void Shader::checkCompileError(unsigned int id, string type)
@@ -62,9 +58,10 @@ void Shader::checkCompileError(unsigned int id, string type)
 unsigned int Shader::createShader(GLenum type, const char *path)
 {
   unsigned int id = glCreateShader(type);
-  const char *source = getShaderSource(path);
+  string source = getShaderSource(path);
+  const char *c_source = source.c_str();
 
-  glCall(glShaderSource(id, 1, &source, NULL));
+  glCall(glShaderSource(id, 1, &c_source, NULL));
   glCall(glCompileShader(id));
   checkCompileError(id, "SHADER");
 

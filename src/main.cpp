@@ -3,8 +3,13 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
 #include <iostream>
+
+#include <shader.h>
+#include <vertexBuffer.h>
+#include <vertexBufferLayout.h>
+#include <vertexArray.h>
+#include <utils.h>
 
 const unsigned int SCR_WIDTH = 800, SCR_HEIGHT = 600;
 
@@ -13,7 +18,6 @@ void processInput(GLFWwindow *window);
 
 int main()
 {
-  std::cout << "hello" << std::endl;
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -40,13 +44,31 @@ int main()
   glEnable(GL_DEPTH_TEST);
   glClearColor(0.5f, 0.3f, 0.2f, 1.0f);
 
-  while (!glfwWindowShouldClose(window))
   {
-    processInput(window);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    float vertices[] = {
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f, 0.5f, 0.0f};
 
-    glfwPollEvents();
-    glfwSwapBuffers(window);
+    Shader def("../shaders/default.vs", "../shaders/default.fs");
+    VertexArray vao;
+    VertexBuffer vbo(3 * 3, vertices, GL_STATIC_DRAW);
+    VertexBufferLayout layout;
+
+    layout.push<float>(3);
+    vao.addBuffer(vbo, layout);
+
+    while (!glfwWindowShouldClose(window))
+    {
+      processInput(window);
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+      def.bind();
+      glCall(glDrawArrays(GL_TRIANGLES, 0, 3));
+
+      glfwPollEvents();
+      glfwSwapBuffers(window);
+    }
   }
 
   glfwTerminate();

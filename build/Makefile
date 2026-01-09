@@ -159,6 +159,126 @@ dependencies/lib/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/glad.c.s
 .PHONY : dependencies/lib/glad.c.s
 
+dependencies/lib/indexBuffer.obj: dependencies/lib/indexBuffer.cpp.obj
+.PHONY : dependencies/lib/indexBuffer.obj
+
+# target to build an object file
+dependencies/lib/indexBuffer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj
+.PHONY : dependencies/lib/indexBuffer.cpp.obj
+
+dependencies/lib/indexBuffer.i: dependencies/lib/indexBuffer.cpp.i
+.PHONY : dependencies/lib/indexBuffer.i
+
+# target to preprocess a source file
+dependencies/lib/indexBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.i
+.PHONY : dependencies/lib/indexBuffer.cpp.i
+
+dependencies/lib/indexBuffer.s: dependencies/lib/indexBuffer.cpp.s
+.PHONY : dependencies/lib/indexBuffer.s
+
+# target to generate assembly for a file
+dependencies/lib/indexBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.s
+.PHONY : dependencies/lib/indexBuffer.cpp.s
+
+dependencies/lib/shader.obj: dependencies/lib/shader.cpp.obj
+.PHONY : dependencies/lib/shader.obj
+
+# target to build an object file
+dependencies/lib/shader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj
+.PHONY : dependencies/lib/shader.cpp.obj
+
+dependencies/lib/shader.i: dependencies/lib/shader.cpp.i
+.PHONY : dependencies/lib/shader.i
+
+# target to preprocess a source file
+dependencies/lib/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.i
+.PHONY : dependencies/lib/shader.cpp.i
+
+dependencies/lib/shader.s: dependencies/lib/shader.cpp.s
+.PHONY : dependencies/lib/shader.s
+
+# target to generate assembly for a file
+dependencies/lib/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.s
+.PHONY : dependencies/lib/shader.cpp.s
+
+dependencies/lib/vertexArray.obj: dependencies/lib/vertexArray.cpp.obj
+.PHONY : dependencies/lib/vertexArray.obj
+
+# target to build an object file
+dependencies/lib/vertexArray.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj
+.PHONY : dependencies/lib/vertexArray.cpp.obj
+
+dependencies/lib/vertexArray.i: dependencies/lib/vertexArray.cpp.i
+.PHONY : dependencies/lib/vertexArray.i
+
+# target to preprocess a source file
+dependencies/lib/vertexArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.i
+.PHONY : dependencies/lib/vertexArray.cpp.i
+
+dependencies/lib/vertexArray.s: dependencies/lib/vertexArray.cpp.s
+.PHONY : dependencies/lib/vertexArray.s
+
+# target to generate assembly for a file
+dependencies/lib/vertexArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.s
+.PHONY : dependencies/lib/vertexArray.cpp.s
+
+dependencies/lib/vertexBuffer.obj: dependencies/lib/vertexBuffer.cpp.obj
+.PHONY : dependencies/lib/vertexBuffer.obj
+
+# target to build an object file
+dependencies/lib/vertexBuffer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj
+.PHONY : dependencies/lib/vertexBuffer.cpp.obj
+
+dependencies/lib/vertexBuffer.i: dependencies/lib/vertexBuffer.cpp.i
+.PHONY : dependencies/lib/vertexBuffer.i
+
+# target to preprocess a source file
+dependencies/lib/vertexBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.i
+.PHONY : dependencies/lib/vertexBuffer.cpp.i
+
+dependencies/lib/vertexBuffer.s: dependencies/lib/vertexBuffer.cpp.s
+.PHONY : dependencies/lib/vertexBuffer.s
+
+# target to generate assembly for a file
+dependencies/lib/vertexBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.s
+.PHONY : dependencies/lib/vertexBuffer.cpp.s
+
+dependencies/lib/vertexBufferLayout.obj: dependencies/lib/vertexBufferLayout.cpp.obj
+.PHONY : dependencies/lib/vertexBufferLayout.obj
+
+# target to build an object file
+dependencies/lib/vertexBufferLayout.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj
+.PHONY : dependencies/lib/vertexBufferLayout.cpp.obj
+
+dependencies/lib/vertexBufferLayout.i: dependencies/lib/vertexBufferLayout.cpp.i
+.PHONY : dependencies/lib/vertexBufferLayout.i
+
+# target to preprocess a source file
+dependencies/lib/vertexBufferLayout.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.i
+.PHONY : dependencies/lib/vertexBufferLayout.cpp.i
+
+dependencies/lib/vertexBufferLayout.s: dependencies/lib/vertexBufferLayout.cpp.s
+.PHONY : dependencies/lib/vertexBufferLayout.s
+
+# target to generate assembly for a file
+dependencies/lib/vertexBufferLayout.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\renderer.dir\build.make CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.s
+.PHONY : dependencies/lib/vertexBufferLayout.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -196,6 +316,21 @@ help:
 	@echo ... dependencies/lib/glad.obj
 	@echo ... dependencies/lib/glad.i
 	@echo ... dependencies/lib/glad.s
+	@echo ... dependencies/lib/indexBuffer.obj
+	@echo ... dependencies/lib/indexBuffer.i
+	@echo ... dependencies/lib/indexBuffer.s
+	@echo ... dependencies/lib/shader.obj
+	@echo ... dependencies/lib/shader.i
+	@echo ... dependencies/lib/shader.s
+	@echo ... dependencies/lib/vertexArray.obj
+	@echo ... dependencies/lib/vertexArray.i
+	@echo ... dependencies/lib/vertexArray.s
+	@echo ... dependencies/lib/vertexBuffer.obj
+	@echo ... dependencies/lib/vertexBuffer.i
+	@echo ... dependencies/lib/vertexBuffer.s
+	@echo ... dependencies/lib/vertexBufferLayout.obj
+	@echo ... dependencies/lib/vertexBufferLayout.i
+	@echo ... dependencies/lib/vertexBufferLayout.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

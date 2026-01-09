@@ -1,18 +1,18 @@
 #include "vertexBufferLayout.h"
 
-inline unsigned int VertexBufferLayout::getStride() const
+unsigned int VertexBufferLayout::getStride() const
 {
   return stride;
 }
 
 template <typename T>
-void VertexBufferLayout::push(int count)
+void VertexBufferLayout::push(unsigned int count)
 {
   static_assert(false);
 }
 
 template <>
-void VertexBufferLayout::push<float>(int count)
+void VertexBufferLayout::push<float>(unsigned int count)
 {
   struct Attribute v = {count, GL_FLOAT, GL_FALSE};
   layout.push_back(v);
@@ -20,7 +20,7 @@ void VertexBufferLayout::push<float>(int count)
 }
 
 template <>
-void VertexBufferLayout::push<unsigned int>(int count)
+void VertexBufferLayout::push<unsigned int>(unsigned int count)
 {
   struct Attribute v = {count, GL_UNSIGNED_INT, GL_FALSE};
   layout.push_back(v);
@@ -28,7 +28,7 @@ void VertexBufferLayout::push<unsigned int>(int count)
 }
 
 template <>
-void VertexBufferLayout::push<unsigned char>(int count)
+void VertexBufferLayout::push<unsigned char>(unsigned int count)
 {
   struct Attribute v = {count, GL_UNSIGNED_BYTE, GL_FALSE};
   layout.push_back(v);

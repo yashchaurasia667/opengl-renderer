@@ -292,6 +292,735 @@ CMakeFiles/renderer.dir/dependencies/lib/glad.c.obj: C:/Users/yashc/Documents/St
   C:/mingw64/x86_64-w64-mingw32/include/wtypes.h \
   C:/mingw64/x86_64-w64-mingw32/include/wtypesbase.h
 
+CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/indexBuffer.cpp \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/KHR/khrplatform.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glad/glad.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/indexBuffer.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/utils.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/binders.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bit \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/char_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/charconv.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/concept_check.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cpp_type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_forced.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_ptr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functexcept.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functional_hash.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hash_bytes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/invoke.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/localefwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memory_resource.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memoryfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/move.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/new_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream_insert.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/postypes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/predefined_ops.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ptr_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/range_access.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/refwrap.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_abs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_algobase.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_construct.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_function.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_funcs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_types.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_pair.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/string_view.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stringfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/utility.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/version.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cerrno \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/clocale \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/concepts \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstddef \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdio \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdlib \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwchar \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/assertions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/debug.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/atomicity.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/numeric_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/string_conversions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/initializer_list \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iosfwd \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/new \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/pstl_config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdexcept \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdlib.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/streambuf \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string_view \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/system_error \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/type_traits \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/typeinfo \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/limits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stddef.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stdint.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/syslimits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
+  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/locale.h \
+  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wctype.h
+
+CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/shader.cpp \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/KHR/khrplatform.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glad/glad.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/shader.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/utils.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/binders.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bit \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/char_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/charconv.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/codecvt.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/concept_check.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cpp_type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_forced.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_ptr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/fstream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functexcept.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functional_hash.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hash_bytes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/invoke.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/localefwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memory_resource.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memoryfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/move.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/new_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream_insert.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/postypes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/predefined_ops.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ptr_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/range_access.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/refwrap.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/sstream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_abs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_algobase.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_construct.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_function.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_funcs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_types.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_pair.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/string_view.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stringfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/utility.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/version.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cerrno \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/clocale \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/concepts \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstddef \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdio \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdlib \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwchar \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/assertions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/debug.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/atomicity.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/numeric_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/string_conversions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/fstream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/initializer_list \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iosfwd \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/new \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/pstl_config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/sstream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdexcept \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdlib.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/streambuf \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string_view \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/system_error \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/type_traits \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/typeinfo \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/limits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stddef.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stdint.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/syslimits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
+  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/locale.h \
+  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wctype.h
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexArray.cpp \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/KHR/khrplatform.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glad/glad.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/utils.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexArray.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBuffer.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBufferLayout.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/binders.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bit \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/char_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/charconv.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/concept_check.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cpp_type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_forced.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_ptr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functexcept.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functional_hash.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hash_bytes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/invoke.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/localefwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memory_resource.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memoryfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/move.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/new_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream_insert.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/postypes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/predefined_ops.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ptr_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/range_access.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/refwrap.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_abs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_algobase.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_construct.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_function.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_funcs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_types.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_pair.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/string_view.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stringfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/utility.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/version.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cerrno \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/clocale \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/concepts \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstddef \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdio \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdlib \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwchar \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/assertions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/debug.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/atomicity.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/numeric_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/string_conversions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/initializer_list \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iosfwd \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/new \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/pstl_config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdexcept \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdlib.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/streambuf \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string_view \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/system_error \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/type_traits \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/typeinfo \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/limits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stddef.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stdint.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/syslimits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
+  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/locale.h \
+  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wctype.h
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexBuffer.cpp \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/KHR/khrplatform.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glad/glad.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/utils.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBuffer.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/binders.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bit \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/char_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/charconv.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/concept_check.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cpp_type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_forced.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_ptr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functexcept.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functional_hash.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hash_bytes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/invoke.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/localefwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memory_resource.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memoryfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/move.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/new_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream_insert.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/postypes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/predefined_ops.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ptr_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/range_access.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/refwrap.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_abs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_algobase.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_construct.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_function.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_funcs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_types.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_pair.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/string_view.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stringfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/utility.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/version.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cerrno \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/clocale \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/concepts \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstddef \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdio \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdlib \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwchar \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/assertions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/debug.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/atomicity.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/numeric_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/string_conversions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/initializer_list \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iosfwd \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/new \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/pstl_config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdexcept \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdlib.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/streambuf \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string_view \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/system_error \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/type_traits \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/typeinfo \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/limits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stddef.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stdint.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/syslimits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
+  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/locale.h \
+  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wctype.h
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexBufferLayout.cpp \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/KHR/khrplatform.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glad/glad.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/utils.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBufferLayout.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/binders.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bit \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/char_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/charconv.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/concept_check.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cpp_type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_forced.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/exception_ptr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functexcept.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functional_hash.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hash_bytes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/invoke.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/localefwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memory_resource.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memoryfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/move.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/new_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream_insert.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/postypes.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/predefined_ops.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ptr_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/range_access.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/refwrap.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_abs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_algobase.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_construct.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_function.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_funcs.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_types.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_pair.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf_iterator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/string_view.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stringfwd.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/utility.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/version.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cerrno \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/clocale \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/concepts \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstddef \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdio \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdlib \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwchar \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwctype \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/assertions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/debug.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/alloc_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/atomicity.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/numeric_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/string_conversions.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/type_traits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/initializer_list \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iosfwd \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/new \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ostream \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/pstl_config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdexcept \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdlib.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/streambuf \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string_view \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/system_error \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/type_traits \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/typeinfo \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/limits.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stddef.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stdint.h \
+  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/syslimits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
+  C:/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/mingw64/x86_64-w64-mingw32/include/locale.h \
+  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  C:/mingw64/x86_64-w64-mingw32/include/wctype.h
+
 CMakeFiles/renderer.dir/src/main.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/src/main.cpp \
   C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/GLFW/glfw3.h \
   C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/KHR/khrplatform.h \
@@ -478,6 +1207,11 @@ CMakeFiles/renderer.dir/src/main.cpp.obj: C:/Users/yashc/Documents/Stuff/current
   C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/vec3.hpp \
   C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/vec4.hpp \
   C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/vector_relational.hpp \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/shader.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/utils.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexArray.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBuffer.h \
+  C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBufferLayout.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/array \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/binders.h \
   C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bit \
@@ -671,31 +1405,31 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/amxbf16intrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/profileapi.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx10_2-512convertintrin.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/vector:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/amxavx512intrin.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glad/glad.h:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat2x2.hpp:
+
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/adxintrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/apisetcconv.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat2x2.hpp:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/ammintrin.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double2x2.hpp:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/enable_special_members.h:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double2x2.hpp:
+
 C:/mingw64/x86_64-w64-mingw32/include/math.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/bmiintrin.h:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_float.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/bmiintrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/errno.h:
 
@@ -703,9 +1437,9 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vp2intersectintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/amxcomplexintrin.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/lwpintrin.h:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/erase_if.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/lwpintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/new_allocator.h:
 
@@ -717,9 +1451,9 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/amxfp16intrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/mmiscapi.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512bwintrin.h:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint1_sized.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512bwintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/amxfp8intrin.h:
 
@@ -729,15 +1463,17 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/fxsrintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/amxmovrsintrin.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdlib:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/rdseedintrin.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/trigonometric.hpp:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/amxtf32intrin.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat4x4.inl:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/trigonometric.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/rdseedintrin.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdlib:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512cdintrin.h:
 
@@ -747,9 +1483,11 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/allocator.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx10_2satcvtintrin.h:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat4x3.hpp:
+
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/amxtileintrin.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat4x3.hpp:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/string_conversions.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vbmiintrin.h:
 
@@ -761,23 +1499,23 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx10_2bf16intrin.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat2x4.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/string_view.tcc:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx10_2-512mediaintrin.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/vec3.hpp:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/string_view.tcc:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vpopcntdqintrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vp2intersectvlintrin.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iostream:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx10_2-512minmaxintrin.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float3x3_precision.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/predefined_ops.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx10_2-512satcvtintrin.h:
 
@@ -823,9 +1561,9 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/uintrintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512fp16vlintrin.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/pstl_config.h:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512dqintrin.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/pstl/pstl_config.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512fintrin.h:
 
@@ -833,17 +1571,19 @@ C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/_ip_types.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vlbwintrin.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat2x3.hpp:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512ifmaintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/xtestintrin.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512fp16intrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/_socket_types.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vbmi2intrin.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexArray.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vbmi2vlintrin.h:
 
@@ -855,11 +1595,9 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vnniintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vnnivlintrin.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double2.hpp:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vpopcntdqvlintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx512vpopcntdqvlintrin.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/func_exponential.inl:
 
@@ -877,11 +1615,11 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/tsxldtrkintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avxvnniint16intrin.h:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint3_sized.hpp:
+
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/cetintrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/propidl.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint3_sized.hpp:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/prfchiintrin.h:
 
@@ -889,17 +1627,17 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/clflushoptintrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/securityappcontainer.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/virtdisk.h:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double3_precision.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/virtdisk.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/clwbintrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/unknwnbase.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/clocale:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/clzerointrin.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/clocale:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/wbnoinvdintrin.h:
 
@@ -943,13 +1681,13 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/limits.h:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBufferLayout.h:
+
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float3x4.hpp:
 
 C:/mingw64/x86_64-w64-mingw32/include/shellapi.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/lzcntintrin.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float3_precision.hpp:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm3dnow.h:
 
@@ -969,8 +1707,6 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mwaitxintrin.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat4x3.inl:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint1.hpp:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/pconfigintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/pkuintrin.h:
@@ -989,15 +1725,15 @@ C:/mingw64/x86_64-w64-mingw32/include/windows.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/raointintrin.h:
 
+C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h:
+
+C:/mingw64/x86_64-w64-mingw32/include/wchar.h:
+
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/rtmintrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/winuser.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/wtypesbase.h:
-
-C:/mingw64/x86_64-w64-mingw32/include/wchar.h:
-
-C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/winerror.h:
 
@@ -1049,9 +1785,9 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/vpclmulqdqintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/wmmintrin.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/x86gprintrin.h:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/scalar_int_sized.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/x86gprintrin.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/x86intrin.h:
 
@@ -1067,6 +1803,10 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/localefwd.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/xsaveoptintrin.h:
 
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdio:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/type_traits:
+
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/xsavesintrin.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/_mingw.h:
@@ -1075,13 +1815,9 @@ C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float1_precision.hpp:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/glm.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_transform.hpp:
 
 C:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_transform.hpp:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/unordered_map:
 
@@ -1111,9 +1847,9 @@ C:/mingw64/x86_64-w64-mingw32/include/cguid.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/combaseapi.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios:
-
 C:/mingw64/x86_64-w64-mingw32/include/commdlg.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ios:
 
 C:/mingw64/x86_64-w64-mingw32/include/concurrencysal.h:
 
@@ -1121,13 +1857,13 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double3x4.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/atomicity.h:
-
 C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/atomicity.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int2.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h:
 
@@ -1167,9 +1903,9 @@ C:/mingw64/x86_64-w64-mingw32/include/malloc.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/fibersapi.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/winreg.h:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float2_precision.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/winreg.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/fileapi.h:
 
@@ -1181,19 +1917,17 @@ C:/mingw64/x86_64-w64-mingw32/include/handleapi.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/interlockedapi.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/heapapi.h:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_geometric.inl:
+
+C:/mingw64/x86_64-w64-mingw32/include/heapapi.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/imm.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/inaddr.h:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double4.hpp:
 
-C:/mingw64/x86_64-w64-mingw32/include/ioapiset.h:
+C:/mingw64/x86_64-w64-mingw32/include/inaddr.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/constants.hpp:
+C:/mingw64/x86_64-w64-mingw32/include/ioapiset.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/jobapi.h:
 
@@ -1207,15 +1941,21 @@ C:/mingw64/x86_64-w64-mingw32/include/libloaderapi.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/limits.h:
 
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/ell_integral.tcc:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/postypes.h:
+
 C:/mingw64/x86_64-w64-mingw32/include/lzexpand.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/mciapi.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/_vectorize.hpp:
 
-C:/mingw64/x86_64-w64-mingw32/include/mcx.h:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/range_access.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/quaternion.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/mcx.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/memoryapi.h:
 
@@ -1233,15 +1973,15 @@ C:/mingw64/x86_64-w64-mingw32/include/winver.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/mmsyscom.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/numeric_traits.h:
-
 C:/mingw64/x86_64-w64-mingw32/include/mmsystem.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double4_precision.hpp:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/vec1.hpp:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/numeric_traits.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/msxml.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/utils.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/namedpipeapi.h:
 
@@ -1251,27 +1991,33 @@ C:/mingw64/x86_64-w64-mingw32/include/windef.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/namespaceapi.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstddef:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint4_sized.hpp:
+C:/mingw64/x86_64-w64-mingw32/include/nb30.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/streambuf:
 
-C:/mingw64/x86_64-w64-mingw32/include/nb30.h:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint4_sized.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstddef:
 
 C:/mingw64/x86_64-w64-mingw32/include/oaidl.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/specstrings.h:
 
+C:/mingw64/x86_64-w64-mingw32/include/locale.h:
+
 C:/mingw64/x86_64-w64-mingw32/include/objbase.h:
+
+C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/objidl.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/objidlbase.h:
 
+C:/mingw64/x86_64-w64-mingw32/include/ole2.h:
+
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/ole2.h:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwctype:
 
 C:/mingw64/x86_64-w64-mingw32/include/oleidl.h:
 
@@ -1289,17 +2035,17 @@ C:/mingw64/x86_64-w64-mingw32/include/processtopologyapi.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/prsht.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/hypergeometric.tcc:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int3_sized.hpp:
-
 C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/_fd_types.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/_xmitfile.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/shader.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_relational.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat4x2.inl:
 
@@ -1317,25 +2063,27 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/move.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/reason.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/rpc.h:
+C:/mingw64/x86_64-w64-mingw32/include/winspool.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/integer.hpp:
 
-C:/mingw64/x86_64-w64-mingw32/include/winspool.h:
+C:/mingw64/x86_64-w64-mingw32/include/rpc.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/rpcdce.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream:
-
 C:/mingw64/x86_64-w64-mingw32/include/rpcdcep.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream:
 
 C:/mingw64/x86_64-w64-mingw32/include/rpcndr.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_types.h:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/fstream.tcc:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int1_sized.hpp:
 
 C:/mingw64/x86_64-w64-mingw32/include/rpcnsi.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int1_sized.hpp:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_types.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/rpcnsip.h:
 
@@ -1359,9 +2107,11 @@ C:/mingw64/x86_64-w64-mingw32/include/timeapi.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/sec_api/stralign_s.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/shader.cpp:
 
 C:/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/securitybaseapi.h:
 
@@ -1381,9 +2131,9 @@ C:/mingw64/x86_64-w64-mingw32/include/synchapi.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/stdlib.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/stringapiset.h:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_transform.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/stringapiset.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl:
 
@@ -1405,21 +2155,21 @@ C:/mingw64/x86_64-w64-mingw32/include/winsock.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/tvout.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_bool4.hpp:
-
 C:/mingw64/x86_64-w64-mingw32/include/unknwn.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/urlmon.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/specfun.h:
-
-C:/mingw64/x86_64-w64-mingw32/include/vadefs.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_bool2.hpp:
 
+C:/mingw64/x86_64-w64-mingw32/include/vadefs.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h:
+
 C:/mingw64/x86_64-w64-mingw32/include/winapifamily.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/indexBuffer.cpp:
 
 C:/mingw64/x86_64-w64-mingw32/include/winbase.h:
 
@@ -1431,19 +2181,19 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/GL
 
 C:/mingw64/x86_64-w64-mingw32/include/wingdi.h:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexArray.cpp:
+
 C:/mingw64/x86_64-w64-mingw32/include/winioctl.h:
-
-C:/mingw64/x86_64-w64-mingw32/include/winnetwk.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float2.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/epsilon.inl:
 
-C:/mingw64/x86_64-w64-mingw32/include/winnls.h:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float2.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/winnetwk.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint2.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float4_precision.hpp:
+C:/mingw64/x86_64-w64-mingw32/include/winnls.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/winnt.h:
 
@@ -1455,6 +2205,214 @@ C:/mingw64/x86_64-w64-mingw32/include/winsvc.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/wnnc.h:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/indexBuffer.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat3x3.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/binders.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bit:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hash_bytes.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/alloc_traits.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/compute_vector_decl.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/charconv.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cpp_type_traits.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functexcept.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functional_hash.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double3x2_precision.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.tcc:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.tcc:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/refwrap.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memory_resource.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memoryfwd.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float4x3_precision.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h:
+
+C:/mingw64/x86_64-w64-mingw32/include/float.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat2x2.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream_insert.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ptr_traits.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_abs.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_algobase.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_construct.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexBufferLayout.cpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_function.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat2x4.inl:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_funcs.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/array:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_pair.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf.tcc:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwchar:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/func_matrix.inl:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf_iterator.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stringfwd.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cerrno:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/utility.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_half.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/version.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cctype:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/concepts:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_function.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint4.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/assertions.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/debug.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float3x3.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_bool1_precision.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/alloc_traits.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/type_traits.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_projection.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double2_precision.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/initializer_list:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iosfwd:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/new:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ostream:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdexcept:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdlib.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/vec4.hpp:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string_view:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/system_error:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/typeinfo:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_quat.inl:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h:
+
+C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexBuffer.cpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float2x3.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_vec1.inl:
+
+C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_vec2.inl:
+
+C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat3x2.hpp:
+
+C:/mingw64/x86_64-w64-mingw32/include/wctype.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cmath:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/codecvt.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/sstream.tcc:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/fstream:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/sstream:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBuffer.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h:
+
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h:
+
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/src/main.cpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/common.hpp:
@@ -1464,10 +2422,6 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/_fixes.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/compute_common.hpp:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_string.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/compute_vector_decl.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/compute_vector_relational.hpp:
 
@@ -1479,12 +2433,6 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/func_integer.inl:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwchar:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf.tcc:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/func_matrix.inl:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/func_packing.inl:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/func_vector_relational.inl:
@@ -1493,23 +2441,11 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/exponential.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/utility.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_half.hpp:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat2x2.hpp:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat2x2.inl:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat2x3.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat2x3.inl:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat2x4.inl:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_mat3x2.inl:
 
@@ -1525,35 +2461,19 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_quat.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_quat.inl:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_vec1.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float3x4_precision.hpp:
 
-C:/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float2x3.hpp:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_vec1.inl:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_vec2.inl:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/detail/type_vec3.inl:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hashtable_policy.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_clip_space.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_clip_space.inl:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double2x2_precision.hpp:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hashtable.h:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_float_precision.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double2x2_precision.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double2x3_precision.hpp:
 
@@ -1561,27 +2481,21 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double3x2.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.tcc:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double3x2_precision.hpp:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double3x3_precision.hpp:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double3x4_precision.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int4.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double4x3.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double3x4_precision.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_double.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double4x3_precision.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double4x3.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_double_precision.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double4x4_precision.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double4x3_precision.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/quaternion.inl:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_double4x4_precision.hpp:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/riemann_zeta.tcc:
 
@@ -1591,31 +2505,15 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float3x2.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int1.hpp:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/climits:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float3x2_precision.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/exception:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_bool1_precision.hpp:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float3x3.hpp:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float4x2_precision.hpp:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float4x3_precision.hpp:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memoryfwd.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_projection.inl:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_float4x4.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/type_traits.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_projection.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_projection.inl:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/matrix_transform.inl:
 
@@ -1623,9 +2521,9 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_common.inl:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_geometric.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_float_precision.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/scalar_uint_sized.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_geometric.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/quaternion_relational.inl:
 
@@ -1639,6 +2537,8 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/scalar_constants.inl:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/scalar_uint_sized.hpp:
+
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_bool1.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_bool2_precision.hpp:
@@ -1647,23 +2547,37 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_bool3_precision.hpp:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_bool4.hpp:
+
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double1.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double1_precision.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/initializer_list:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double2_precision.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double2.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double3.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float1.hpp:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/vec1.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_double4_precision.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/epsilon.hpp:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float1.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/glm.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float1_precision.hpp:
+
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float3.hpp:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float3_precision.hpp:
+
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float4.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_float4_precision.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int1.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int2_sized.hpp:
 
@@ -1671,27 +2585,27 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/aligned_buffer.h:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int3.hpp:
 
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/hypergeometric.tcc:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int3_sized.hpp:
+
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_int4_sized.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_relational.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat2x4.hpp:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_relational.inl:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint1.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint2_sized.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint3.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/assertions.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_function.h:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/ext/vector_uint4.hpp:
-
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/fwd.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/geometric.hpp:
+
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/constants.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/constants.inl:
 
@@ -1699,17 +2613,15 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/matrix_transform.inl:
 
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/quaternion.inl:
+
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/type_ptr.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/gtc/type_ptr.inl:
 
-C:/mingw64/x86_64-w64-mingw32/include/wctype.h:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat2x3.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat3x2.hpp:
-
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat3x3.hpp:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/backward/binders.h:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat2x4.hpp:
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/mat3x4.hpp:
 
@@ -1725,147 +2637,29 @@ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/gl
 
 C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/vec2.hpp:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string_view:
+C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/vec3.hpp:
 
-C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/glm/vec4.hpp:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_pair.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/array:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bit:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hash_bytes.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/alloc_traits.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/charconv.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cpp_type_traits.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/cxxabi_init_exception.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functexcept.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/functional_hash.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ios_base.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/vector.tcc:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_classes.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_uninitialized.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/refwrap.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/locale_facets.tcc:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/memory_resource.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/nested_exception.h:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/hashtable_policy.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/node_handle.h:
 
-C:/mingw64/x86_64-w64-mingw32/include/float.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream_insert.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/ell_integral.tcc:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/postypes.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/predefined_ops.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ptr_traits.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/range_access.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/requires_hosted.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/std_abs.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_algobase.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_bvector.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_construct.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_function.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_iterator_base_funcs.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stl_vector.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/streambuf_iterator.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cerrno:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/stringfwd.h:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/unordered_map.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/uses_allocator_args.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/version.h:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/legendre_function.tcc:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cassert:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cctype:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cfloat:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cmath:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/compare:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/concepts:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdint:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/type_traits:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstdio:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cstring:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/cwctype:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/debug/debug.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/alloc_traits.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ext/string_conversions.h:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/functional:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/iosfwd:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/limits:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/new:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/ostream:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdexcept:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/stdlib.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/string:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/system_error:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/bessel_function.tcc:
 
@@ -1881,30 +2675,6 @@ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/poly_hermite.tcc:
 
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tr1/special_function_util.h:
 
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/tuple:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/typeinfo:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h:
-
-C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h:
-
 C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/float.h:
 
 C:/mingw64/x86_64-w64-mingw32/include/assert.h:
-
-C:/mingw64/x86_64-w64-mingw32/include/locale.h:
-
-C:/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h:
-
-C:/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h:
-
-C:/mingw64/x86_64-w64-mingw32/include/sys/timeb.h:

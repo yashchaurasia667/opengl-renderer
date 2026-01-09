@@ -36,8 +36,8 @@ public:
   VertexBufferLayout() : stride(0) {};
 
   template <typename T>
-  void push(int count);
+  void push(unsigned int count);
 
   inline const std::vector<Attribute> *getElements() const { return &layout; }
-  inline unsigned int getStride() const;
+  unsigned int getStride() const;
 };

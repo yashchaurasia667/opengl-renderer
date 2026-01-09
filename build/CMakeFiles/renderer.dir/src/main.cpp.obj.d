@@ -366,4 +366,9 @@ CMakeFiles/renderer.dir/src/main.cpp.obj: \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/basic_ios.tcc \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/ostream.tcc \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/istream \
- C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc
+ C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/c++/bits/istream.tcc \
+ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/shader.h \
+ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBuffer.h \
+ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexBufferLayout.h \
+ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/utils.h \
+ C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/include/vertexArray.h

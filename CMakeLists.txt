@@ -6,6 +6,7 @@ find_package(OpenGL REQUIRED)
 set(INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/dependencies/include")
 set(LIB "${CMAKE_CURRENT_SOURCE_DIR}/dependencies/lib")
 set(SRC "${CMAKE_CURRENT_SOURCE_DIR}/src")
+set(CMAKE_CXX_FLAGS "-Wall -g")
 
 add_library(depends INTERFACE)
 target_include_directories(depends INTERFACE "${INCLUDE}")

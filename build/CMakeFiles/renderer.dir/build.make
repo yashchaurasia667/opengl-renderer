@@ -101,16 +101,101 @@ CMakeFiles/renderer.dir/dependencies/lib/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/renderer.dir/dependencies/lib/glad.c.s"
 	C:\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\glad.c -o CMakeFiles\renderer.dir\dependencies\lib\glad.c.s
 
+CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj: CMakeFiles/renderer.dir/flags.make
+CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj: CMakeFiles/renderer.dir/includes_CXX.rsp
+CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/shader.cpp
+CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj: CMakeFiles/renderer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yashc\Documents\Stuff\current_projects\renderer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj -MF CMakeFiles\renderer.dir\dependencies\lib\shader.cpp.obj.d -o CMakeFiles\renderer.dir\dependencies\lib\shader.cpp.obj -c C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\shader.cpp
+
+CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.i"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\shader.cpp > CMakeFiles\renderer.dir\dependencies\lib\shader.cpp.i
+
+CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.s"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\shader.cpp -o CMakeFiles\renderer.dir\dependencies\lib\shader.cpp.s
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj: CMakeFiles/renderer.dir/flags.make
+CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj: CMakeFiles/renderer.dir/includes_CXX.rsp
+CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexBuffer.cpp
+CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj: CMakeFiles/renderer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yashc\Documents\Stuff\current_projects\renderer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj -MF CMakeFiles\renderer.dir\dependencies\lib\vertexBuffer.cpp.obj.d -o CMakeFiles\renderer.dir\dependencies\lib\vertexBuffer.cpp.obj -c C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexBuffer.cpp
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.i"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexBuffer.cpp > CMakeFiles\renderer.dir\dependencies\lib\vertexBuffer.cpp.i
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.s"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexBuffer.cpp -o CMakeFiles\renderer.dir\dependencies\lib\vertexBuffer.cpp.s
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj: CMakeFiles/renderer.dir/flags.make
+CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj: CMakeFiles/renderer.dir/includes_CXX.rsp
+CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexBufferLayout.cpp
+CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj: CMakeFiles/renderer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yashc\Documents\Stuff\current_projects\renderer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj -MF CMakeFiles\renderer.dir\dependencies\lib\vertexBufferLayout.cpp.obj.d -o CMakeFiles\renderer.dir\dependencies\lib\vertexBufferLayout.cpp.obj -c C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexBufferLayout.cpp
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.i"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexBufferLayout.cpp > CMakeFiles\renderer.dir\dependencies\lib\vertexBufferLayout.cpp.i
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.s"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexBufferLayout.cpp -o CMakeFiles\renderer.dir\dependencies\lib\vertexBufferLayout.cpp.s
+
+CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj: CMakeFiles/renderer.dir/flags.make
+CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj: CMakeFiles/renderer.dir/includes_CXX.rsp
+CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/indexBuffer.cpp
+CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj: CMakeFiles/renderer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yashc\Documents\Stuff\current_projects\renderer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj -MF CMakeFiles\renderer.dir\dependencies\lib\indexBuffer.cpp.obj.d -o CMakeFiles\renderer.dir\dependencies\lib\indexBuffer.cpp.obj -c C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\indexBuffer.cpp
+
+CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.i"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\indexBuffer.cpp > CMakeFiles\renderer.dir\dependencies\lib\indexBuffer.cpp.i
+
+CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.s"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\indexBuffer.cpp -o CMakeFiles\renderer.dir\dependencies\lib\indexBuffer.cpp.s
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj: CMakeFiles/renderer.dir/flags.make
+CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj: CMakeFiles/renderer.dir/includes_CXX.rsp
+CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/vertexArray.cpp
+CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj: CMakeFiles/renderer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\yashc\Documents\Stuff\current_projects\renderer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj -MF CMakeFiles\renderer.dir\dependencies\lib\vertexArray.cpp.obj.d -o CMakeFiles\renderer.dir\dependencies\lib\vertexArray.cpp.obj -c C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexArray.cpp
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.i"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexArray.cpp > CMakeFiles\renderer.dir\dependencies\lib\vertexArray.cpp.i
+
+CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.s"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\yashc\Documents\Stuff\current_projects\renderer\dependencies\lib\vertexArray.cpp -o CMakeFiles\renderer.dir\dependencies\lib\vertexArray.cpp.s
+
 # Object files for target renderer
 renderer_OBJECTS = \
 "CMakeFiles/renderer.dir/src/main.cpp.obj" \
-"CMakeFiles/renderer.dir/dependencies/lib/glad.c.obj"
+"CMakeFiles/renderer.dir/dependencies/lib/glad.c.obj" \
+"CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj" \
+"CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj" \
+"CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj" \
+"CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj" \
+"CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj"
 
 # External object files for target renderer
 renderer_EXTERNAL_OBJECTS =
 
 renderer.exe: CMakeFiles/renderer.dir/src/main.cpp.obj
 renderer.exe: CMakeFiles/renderer.dir/dependencies/lib/glad.c.obj
+renderer.exe: CMakeFiles/renderer.dir/dependencies/lib/shader.cpp.obj
+renderer.exe: CMakeFiles/renderer.dir/dependencies/lib/vertexBuffer.cpp.obj
+renderer.exe: CMakeFiles/renderer.dir/dependencies/lib/vertexBufferLayout.cpp.obj
+renderer.exe: CMakeFiles/renderer.dir/dependencies/lib/indexBuffer.cpp.obj
+renderer.exe: CMakeFiles/renderer.dir/dependencies/lib/vertexArray.cpp.obj
 renderer.exe: CMakeFiles/renderer.dir/build.make
 renderer.exe: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/libglfw3.a
 renderer.exe: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependencies/lib/libassimp.dll.a
@@ -118,7 +203,7 @@ renderer.exe: C:/Users/yashc/Documents/Stuff/current_projects/renderer/dependenc
 renderer.exe: CMakeFiles/renderer.dir/linkLibs.rsp
 renderer.exe: CMakeFiles/renderer.dir/objects1.rsp
 renderer.exe: CMakeFiles/renderer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\yashc\Documents\Stuff\current_projects\renderer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable renderer.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\yashc\Documents\Stuff\current_projects\renderer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable renderer.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\renderer.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

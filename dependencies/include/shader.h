@@ -1,11 +1,14 @@
 #pragma once
 
+#include <string>
+#include <glad/glad.h>
+
 class Shader
 {
 private:
   unsigned int ID;
-  const char *getShaderSource(const char *path);
-  void checkCompileError(unsigned int id, string type);
+  std::string getShaderSource(const char *path);
+  void checkCompileError(unsigned int id, std::string type);
   unsigned int createShader(GLenum type, const char *path);
 
 public:
