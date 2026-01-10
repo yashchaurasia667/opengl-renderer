@@ -11,9 +11,11 @@
 #include <indexBuffer.h>
 #include <vertexBufferLayout.h>
 #include <vertexArray.h>
+#include <texture.h>
 #include <utils.h>
 
 const unsigned int SCR_WIDTH = 800, SCR_HEIGHT = 600;
+bool cursor = false;
 Camera camera(glm::vec3(0.0f), 45.0f, 0.1f, 2.5f);
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height);
@@ -55,23 +57,26 @@ int main()
 
   {
     float vertices[] = {
-        -0.5f, -0.5f, -0.5,
-        0.5f, -0.5f, -0.5,
-        0.5f, 0.5f, -0.5,
-        -0.5f, 0.5f, -0.5};
+        -0.5f, -0.5f, -0.5, 0.0f, 0.0f,
+        0.5f, -0.5f, -0.5, 1.0f, 0.0f,
+        0.5f, 0.5f, -0.5, 1.0f, 1.0f,
+        -0.5f, 0.5f, -0.5, 0.0f, 1.0f};
 
     unsigned int indices[] = {
         0, 1, 2,
         0, 2, 3};
 
-    Shader def("../shaders/cube.vs", "../shaders/default.fs");
+    Shader def("../shaders/cube.vs", "../shaders/cube.fs");
     VertexArray vao;
-    VertexBuffer vbo(4 * 3, vertices, GL_STATIC_DRAW);
+    VertexBuffer vbo(4 * (3 + 2), vertices, GL_STATIC_DRAW);
     IndexBuffer ibo(3 * 2, indices, GL_STATIC_DRAW);
     VertexBufferLayout layout;
 
     layout.push<float>(3);
+    layout.push<float>(2);
     vao.addBuffer(vbo, layout);
+
+    Texture cat("../resources/cat.jpg");
 
     while (!glfwWindowShouldClose(window))
     {
@@ -84,6 +89,7 @@ int main()
       glm::mat4 view = camera.getViewMatrix();
       glm::mat4 projection = glm::perspective(camera.getFov(), 16.0f / 9.0f, 0.1f, 100.0f);
 
+      def.setInt("u_texture", 0);
       def.setMat4("model", model);
       def.setMat4("view", view);
       def.setMat4("projection", projection);
@@ -109,6 +115,11 @@ void processInput(GLFWwindow *window)
 {
   if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     glfwSetWindowShouldClose(window, true);
+  if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
+  {
+    glfwSetInputMode(window, GLFW_CURSOR, cursor ? GLFW_CURSOR_DISABLED : GLFW_CURSOR_NORMAL);
+    cursor = !cursor;
+  }
   camera.processMovement(window);
 }
 
