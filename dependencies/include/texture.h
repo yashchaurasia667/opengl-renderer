@@ -4,8 +4,9 @@ class Texture
 {
 private:
   int width, height, nrChannels;
-  unsigned int ID;
+
 public:
+  unsigned int ID;
   Texture(const char *path);
   ~Texture();
 

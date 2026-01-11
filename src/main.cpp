@@ -13,6 +13,7 @@
 #include <vertexArray.h>
 #include <texture.h>
 #include <utils.h>
+#include <model.h>
 
 const unsigned int SCR_WIDTH = 800, SCR_HEIGHT = 600;
 bool cursor = false;
@@ -56,27 +57,29 @@ int main()
   glCall(glClearColor(0.5f, 0.3f, 0.2f, 1.0f));
 
   {
-    float vertices[] = {
-        -0.5f, -0.5f, -0.5, 0.0f, 0.0f,
-        0.5f, -0.5f, -0.5, 1.0f, 0.0f,
-        0.5f, 0.5f, -0.5, 1.0f, 1.0f,
-        -0.5f, 0.5f, -0.5, 0.0f, 1.0f};
+    // float vertices[] = {
+    //     -0.5f, -0.5f, -0.5, 0.0f, 0.0f,
+    //     0.5f, -0.5f, -0.5, 1.0f, 0.0f,
+    //     0.5f, 0.5f, -0.5, 1.0f, 1.0f,
+    //     -0.5f, 0.5f, -0.5, 0.0f, 1.0f};
 
-    unsigned int indices[] = {
-        0, 1, 2,
-        0, 2, 3};
+    // unsigned int indices[] = {
+    //     0, 1, 2,
+    //     0, 2, 3};
 
     Shader def("../shaders/cube.vs", "../shaders/cube.fs");
-    VertexArray vao;
-    VertexBuffer vbo(4 * (3 + 2), vertices, GL_STATIC_DRAW);
-    IndexBuffer ibo(3 * 2, indices, GL_STATIC_DRAW);
-    VertexBufferLayout layout;
+    // VertexArray vao;
+    // VertexBuffer vbo(4 * (3 + 2), vertices, GL_STATIC_DRAW);
+    // IndexBuffer ibo(3 * 2, indices, GL_STATIC_DRAW);
+    // VertexBufferLayout layout;
 
-    layout.push<float>(3);
-    layout.push<float>(2);
-    vao.addBuffer(vbo, layout);
+    // layout.push<float>(3);
+    // layout.push<float>(2);
+    // vao.addBuffer(vbo, layout);
 
-    Texture cat("../resources/cat.jpg");
+    // Texture cat("../resources/cat.jpg");
+
+    Model square("../resources/square.obj");
 
     while (!glfwWindowShouldClose(window))
     {
@@ -93,8 +96,9 @@ int main()
       def.setMat4("model", model);
       def.setMat4("view", view);
       def.setMat4("projection", projection);
+      square.draw(def);
 
-      glCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
+      // glCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
       // glCall(glDrawArrays(GL_TRIANGLES, 0, 3));
 
       glfwPollEvents();
