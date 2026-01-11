@@ -36,6 +36,7 @@ private:
   std::vector<TextureType> textures;
 
   VertexArray vao;
+  unsigned int VAO;
   VertexBuffer vbo;
   IndexBuffer ibo;
   VertexBufferLayout layout;

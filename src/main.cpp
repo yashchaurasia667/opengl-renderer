@@ -7,12 +7,12 @@
 
 #include <shader.h>
 #include <camera.h>
-#include <vertexBuffer.h>
-#include <indexBuffer.h>
-#include <vertexBufferLayout.h>
-#include <vertexArray.h>
-#include <texture.h>
-#include <utils.h>
+// #include <vertexBuffer.h>
+// #include <indexBuffer.h>
+// #include <vertexBufferLayout.h>
+// #include <vertexArray.h>
+// #include <texture.h>
+// #include <utils.h>
 #include <model.h>
 
 const unsigned int SCR_WIDTH = 800, SCR_HEIGHT = 600;

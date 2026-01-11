@@ -9,7 +9,7 @@ IndexBuffer::IndexBuffer() : ID(0)
   glCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID));
 }
 
-IndexBuffer::IndexBuffer(int count, void *data, unsigned int usage) : IndexBuffer()
+IndexBuffer::IndexBuffer(int count, unsigned int *data, unsigned int usage) : IndexBuffer()
 {
   glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(unsigned int), data, usage));
 }
@@ -29,7 +29,8 @@ void IndexBuffer::unbind() const
   glCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
 }
 
-void IndexBuffer::setData(int count, void *data, unsigned int usage)
+void IndexBuffer::setData(int count, unsigned int *data, unsigned int usage)
 {
+  glCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID));
   glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(unsigned int), data, usage));
 }

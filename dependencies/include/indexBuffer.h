@@ -7,10 +7,10 @@ private:
 
 public:
   IndexBuffer();
-  IndexBuffer(int count, void *data, unsigned int usage);
+  IndexBuffer(int count, unsigned int *data, unsigned int usage);
   ~IndexBuffer();
 
   void bind() const;
   void unbind() const;
-  void setData(int count, void *data, unsigned int usage);
+  void setData(int count, unsigned int *data, unsigned int usage);
 };

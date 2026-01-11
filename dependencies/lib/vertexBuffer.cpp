@@ -31,5 +31,6 @@ void VertexBuffer::unbind() const
 
 void VertexBuffer::setData(int count, void *data, unsigned int usage)
 {
+  glCall(glBindBuffer(GL_ARRAY_BUFFER, ID));
   glCall(glBufferData(GL_ARRAY_BUFFER, count * sizeof(float), data, usage));
 }

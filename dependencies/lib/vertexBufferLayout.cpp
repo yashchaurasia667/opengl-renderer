@@ -30,7 +30,7 @@ void VertexBufferLayout::push<unsigned int>(unsigned int count)
 template <>
 void VertexBufferLayout::push<unsigned char>(unsigned int count)
 {
-  struct Attribute v = {count, GL_UNSIGNED_BYTE, GL_FALSE};
+  struct Attribute v = {count, GL_UNSIGNED_BYTE, GL_TRUE};
   layout.push_back(v);
   stride += count * sizeof(unsigned char);
 }
