@@ -1,16 +1,16 @@
 #pragma once
 
-#include <glm/gtc/type_ptr.hpp>
 #include <string>
 #include <vector>
+#include <glm/gtc/type_ptr.hpp>
 
-#include <shader.h>
 #include <vertexArray.h>
 #include <vertexBuffer.h>
 #include <vertexBufferLayout.h>
 #include <indexBuffer.h>
+#include <shader.h>
 
-struct Vertex
+struct VertexType
 {
   glm::vec3 position;
   glm::vec3 normal;
@@ -21,25 +21,23 @@ struct TextureType
 {
   unsigned int id;
   std::string type;
-  std::string path;
 };
 
 class Mesh
 {
-public:
-  Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<TextureType> textures);
-  void draw(Shader &shader);
-
 private:
-  std::vector<Vertex> vertices;
+  std::vector<VertexType> vertices;
   std::vector<unsigned int> indices;
   std::vector<TextureType> textures;
 
   VertexArray vao;
-  unsigned int VAO;
   VertexBuffer vbo;
   IndexBuffer ibo;
   VertexBufferLayout layout;
 
   void setupMesh();
+
+public:
+  Mesh(std::vector<VertexType> vertices, std::vector<unsigned int> indices, std::vector<TextureType> textures);
+  void draw(Shader &shader);
 };

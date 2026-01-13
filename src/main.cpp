@@ -12,8 +12,8 @@
 // #include <vertexBufferLayout.h>
 // #include <vertexArray.h>
 // #include <texture.h>
-// #include <utils.h>
-#include <model.h>
+#include <utils.h>
+#include <mesh.h>
 
 const unsigned int SCR_WIDTH = 800, SCR_HEIGHT = 600;
 bool cursor = false;
@@ -57,30 +57,19 @@ int main()
   glCall(glClearColor(0.5f, 0.3f, 0.2f, 1.0f));
 
   {
-    // float vertices[] = {
-    //     -0.5f, -0.5f, -0.5, 0.0f, 0.0f,
-    //     0.5f, -0.5f, -0.5, 1.0f, 0.0f,
-    //     0.5f, 0.5f, -0.5, 1.0f, 1.0f,
-    //     -0.5f, 0.5f, -0.5, 0.0f, 1.0f};
+    std::vector<VertexType> vertices;
+    VertexType vertex;
+    vertex.position = glm::vec3(0.2f, 0.4f, 0.6f);
+    vertex.normal = glm::vec3(0.0f, 1.0f, 0.0f);
+    vertex.texCoords = glm::vec2(1.0f, 0.0f);
+    vertices.push_back(vertex);
 
-    // unsigned int indices[] = {
-    //     0, 1, 2,
-    //     0, 2, 3};
+    std::vector<TextureType> textures;
+    std::vector<unsigned int> indices = {0, 1, 2};
+
+    Mesh m(vertices, indices, textures);
 
     Shader def("../shaders/cube.vs", "../shaders/cube.fs");
-    // VertexArray vao;
-    // VertexBuffer vbo(4 * (3 + 2), vertices, GL_STATIC_DRAW);
-    // IndexBuffer ibo(3 * 2, indices, GL_STATIC_DRAW);
-    // VertexBufferLayout layout;
-
-    // layout.push<float>(3);
-    // layout.push<float>(2);
-    // vao.addBuffer(vbo, layout);
-
-    // Texture cat("../resources/cat.jpg");
-
-    Model square("../resources/square.obj");
-
     while (!glfwWindowShouldClose(window))
     {
       camera.updateFrame();
@@ -91,12 +80,12 @@ int main()
       glm::mat4 model = glm::mat4(1.0f);
       glm::mat4 view = camera.getViewMatrix();
       glm::mat4 projection = glm::perspective(camera.getFov(), 16.0f / 9.0f, 0.1f, 100.0f);
+      m.draw(def);
 
       def.setInt("u_texture", 0);
       def.setMat4("model", model);
       def.setMat4("view", view);
       def.setMat4("projection", projection);
-      square.draw(def);
 
       // glCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
       // glCall(glDrawArrays(GL_TRIANGLES, 0, 3));
