@@ -1,8 +1,8 @@
 #pragma once
 
+#include <glm/glm.hpp>
 #include <string>
 #include <vector>
-#include <glm/gtc/type_ptr.hpp>
 
 #include <vertexArray.h>
 #include <vertexBuffer.h>
@@ -10,34 +10,43 @@
 #include <indexBuffer.h>
 #include <shader.h>
 
+#define MAX_BONE_INFLUENCE 4
+using namespace std;
+
 struct VertexType
 {
   glm::vec3 position;
   glm::vec3 normal;
   glm::vec2 texCoords;
+  glm::vec3 tangent;
+  glm::vec3 bitangent;
+  int m_BoneIDs[MAX_BONE_INFLUENCE];
+  float m_Weights[MAX_BONE_INFLUENCE];
 };
 
 struct TextureType
 {
   unsigned int id;
-  std::string type;
+  string type;
+  string path;
 };
 
 class Mesh
 {
-private:
-  std::vector<VertexType> vertices;
-  std::vector<unsigned int> indices;
-  std::vector<TextureType> textures;
-
-  VertexArray vao;
-  VertexBuffer vbo;
-  IndexBuffer ibo;
-  VertexBufferLayout layout;
-
-  void setupMesh();
-
 public:
-  Mesh(std::vector<VertexType> vertices, std::vector<unsigned int> indices, std::vector<TextureType> textures);
+  vector<VertexType> vertices;
+  vector<unsigned int> indices;
+  vector<TextureType> textures;
+  unsigned int VAO;
+
+  Mesh(vector<VertexType> vertices, vector<unsigned int> indices, vector<TextureType> textures);
   void draw(Shader &shader);
+
+private:
+  unsigned int VBO, EBO;
+  // VertexArray vao;
+  // VertexBuffer vbo;
+  // IndexBuffer ibo;
+  // VertexBufferLayout layout;
+  void setupMesh();
 };
