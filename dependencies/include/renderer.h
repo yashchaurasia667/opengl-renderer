@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <vector>
+#include <string>
 
 #include <shader.h>
 #include <model.h>
@@ -20,12 +21,12 @@ private:
 public:
   Renderer(const char *title, int width, int height, const char *object_path);
   ~Renderer();
-  void start(void (*game_loop)());
+  void start(void (*game_loop)(), Shader &shader);
 
   static GLFWwindow *getWindow();
   static void setCursorMode(unsigned int mode);
   static void setFrameBufferCallback(frameBufferSizeCallbackFun callback);
   static void setCursorPosCallback(mouseCallbackFun callback);
   static void setScrollCallback(mouseCallbackFun callback);
-  // void addModel(const char *path);
+  void addModel(std::string path);
 };

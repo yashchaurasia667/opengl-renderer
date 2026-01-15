@@ -38,16 +38,24 @@ Renderer::~Renderer()
   glfwTerminate();
 }
 
-void Renderer::start(void (*game_loop)())
+void Renderer::start(void (*game_loop)(), Shader &shader)
 {
   while (!glfwWindowShouldClose(window))
   {
     if (game_loop)
       game_loop();
 
+    for (unsigned int i = 0; i < models.size(); i++)
+      models[i].draw(shader);
+
     glfwPollEvents();
     glfwSwapBuffers(window);
   }
+}
+
+void Renderer::addModel(std::string path)
+{
+  models.push_back(Model(path, false));
 }
 
 GLFWwindow *Renderer::getWindow()

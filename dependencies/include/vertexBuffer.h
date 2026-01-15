@@ -7,10 +7,10 @@ private:
 
 public:
   VertexBuffer();
-  VertexBuffer(int count, void *data, unsigned int usage);
+  VertexBuffer(unsigned int size, void *data, unsigned int usage);
   ~VertexBuffer();
 
   void bind() const;
   void unbind() const;
-  void setData(int count, void *data, unsigned int usage);
+  void setData(unsigned int size, void *data, unsigned int usage);
 };

@@ -1,17 +1,16 @@
 #pragma once
 
+#include <glad/glad.h>
+
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
+#include <shader.h>
+
 #include <string>
 #include <vector>
 
-#include <vertexArray.h>
-#include <vertexBuffer.h>
-#include <vertexBufferLayout.h>
-#include <indexBuffer.h>
-#include <shader.h>
-
 #define MAX_BONE_INFLUENCE 4
-using namespace std;
 
 struct VertexType
 {
@@ -27,26 +26,22 @@ struct VertexType
 struct TextureType
 {
   unsigned int id;
-  string type;
-  string path;
+  std::string type;
+  std::string path;
 };
 
 class Mesh
 {
 public:
-  vector<VertexType> vertices;
-  vector<unsigned int> indices;
-  vector<TextureType> textures;
+  std::vector<VertexType> vertices;
+  std::vector<unsigned int> indices;
+  std::vector<TextureType> textures;
   unsigned int VAO;
 
-  Mesh(vector<VertexType> vertices, vector<unsigned int> indices, vector<TextureType> textures);
+  Mesh(std::vector<VertexType> vertices, std::vector<unsigned int> indices, std::vector<TextureType> textures);
   void draw(Shader &shader);
 
 private:
   unsigned int VBO, EBO;
-  // VertexArray vao;
-  // VertexBuffer vbo;
-  // IndexBuffer ibo;
-  // VertexBufferLayout layout;
   void setupMesh();
 };

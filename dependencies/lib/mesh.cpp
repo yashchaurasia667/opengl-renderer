@@ -1,85 +1,87 @@
 #include "mesh.h"
 #include <utils.h>
-#include <cstddef>
 
-Mesh::Mesh(vector<VertexType> vertices, vector<unsigned int> indices, vector<TextureType> textures)
+Mesh::Mesh(std::vector<VertexType> vertices, std::vector<unsigned int> indices, std::vector<TextureType> textures)
 {
   this->vertices = vertices;
   this->indices = indices;
   this->textures = textures;
-
-  std::cout << textures.size() << std::endl;
 
   setupMesh();
 }
 
 void Mesh::draw(Shader &shader)
 {
+  // bind appropriate textures
   unsigned int diffuseNr = 1;
   unsigned int specularNr = 1;
   unsigned int normalNr = 1;
   unsigned int heightNr = 1;
   for (unsigned int i = 0; i < textures.size(); i++)
   {
-    glActiveTexture(GL_TEXTURE0 + i); 
+    glCall(glActiveTexture(GL_TEXTURE0 + i));
 
-    string number;
-    string name = textures[i].type;
+    std::string number;
+    std::string name = textures[i].type;
     if (name == "texture_diffuse")
       number = std::to_string(diffuseNr++);
     else if (name == "texture_specular")
-      number = std::to_string(specularNr++);
+      number = std::to_string(specularNr++); // transfer unsigned int to string
     else if (name == "texture_normal")
-      number = std::to_string(normalNr++);
+      number = std::to_string(normalNr++); // transfer unsigned int to string
     else if (name == "texture_height")
-      number = std::to_string(heightNr++);
+      number = std::to_string(heightNr++); // transfer unsigned int to string
 
+    // now set the sampler to the correct texture unit
     shader.setInt((name + number).c_str(), i);
-    glBindTexture(GL_TEXTURE_2D, textures[i].id);
+    // and finally bind the texture
+    glCall(glBindTexture(GL_TEXTURE_2D, textures[i].id));
   }
 
-  glBindVertexArray(VAO);
-  glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
-  glBindVertexArray(0);
+  // draw mesh
+  glCall(glBindVertexArray(VAO));
+  glCall(glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0));
+  glCall(glBindVertexArray(0));
 
-  glActiveTexture(GL_TEXTURE0);
+  // always good practice to set everything back to defaults once configured.
+  glCall(glActiveTexture(GL_TEXTURE0));
 }
 
 void Mesh::setupMesh()
 {
-  glGenVertexArrays(1, &VAO);
-  glGenBuffers(1, &VBO);
-  glGenBuffers(1, &EBO);
+  // create buffers/arrays
+  glCall(glGenVertexArrays(1, &VAO));
+  glCall(glGenBuffers(1, &VBO));
+  glCall(glGenBuffers(1, &EBO));
 
-  glBindVertexArray(VAO);
-  glBindBuffer(GL_ARRAY_BUFFER, VBO);
-  glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(VertexType), &vertices[0], GL_STATIC_DRAW);
+  glCall(glBindVertexArray(VAO));
+  glCall(glBindBuffer(GL_ARRAY_BUFFER, VBO));
+  glCall(glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(VertexType), &vertices[0], GL_STATIC_DRAW));
 
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
+  glCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO));
+  glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW));
 
-  // set the vertex attribute pointers
   // vertex Positions
-  glEnableVertexAttribArray(0);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)0);
+  glCall(glEnableVertexAttribArray(0));
+  glCall(glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)0));
   // vertex normals
-  glEnableVertexAttribArray(1);
-  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, normal));
+  glCall(glEnableVertexAttribArray(1));
+  glCall(glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, normal)));
   // vertex texture coords
-  glEnableVertexAttribArray(2);
-  glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, texCoords));
+  glCall(glEnableVertexAttribArray(2));
+  glCall(glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, texCoords)));
   // vertex tangent
-  glEnableVertexAttribArray(3);
-  glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, tangent));
+  glCall(glEnableVertexAttribArray(3));
+  glCall(glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, tangent)));
   // vertex bitangent
-  glEnableVertexAttribArray(4);
-  glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, bitangent));
+  glCall(glEnableVertexAttribArray(4));
+  glCall(glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, bitangent)));
   // ids
-  glEnableVertexAttribArray(5);
-  glVertexAttribIPointer(5, 4, GL_INT, sizeof(VertexType), (void *)offsetof(VertexType, m_BoneIDs));
+  glCall(glEnableVertexAttribArray(5));
+  glCall(glVertexAttribIPointer(5, 4, GL_INT, sizeof(VertexType), (void *)offsetof(VertexType, m_BoneIDs)));
 
   // weights
-  glEnableVertexAttribArray(6);
-  glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, m_Weights));
-  glBindVertexArray(0);
+  glCall(glEnableVertexAttribArray(6));
+  glCall(glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, m_Weights)));
+  glCall(glBindVertexArray(0));
 }
