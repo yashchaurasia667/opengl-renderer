@@ -148,6 +148,8 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
 // the required info is returned as a Texture struct.
 std::vector<TextureType> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName)
 {
+  std::cout << "loading material texture" << std::endl;
+  // std::cout << mat->GetTextureCount(type) << std::endl;
   std::vector<TextureType> textures;
   for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
   {
@@ -179,6 +181,7 @@ std::vector<TextureType> Model::loadMaterialTextures(aiMaterial *mat, aiTextureT
 
 unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma)
 {
+  std::cout << "loading texture from file" << std::endl;
   std::string filename = std::string(path);
   filename = directory + '/' + filename;
 

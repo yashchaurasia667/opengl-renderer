@@ -21,7 +21,7 @@ private:
 public:
   Renderer(const char *title, int width, int height, const char *object_path);
   ~Renderer();
-  void start(void (*game_loop)(), Shader &shader);
+  void start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader);
 
   static GLFWwindow *getWindow();
   static void setCursorMode(unsigned int mode);

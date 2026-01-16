@@ -12,6 +12,7 @@ Mesh::Mesh(std::vector<VertexType> vertices, std::vector<unsigned int> indices, 
 
 void Mesh::draw(Shader &shader)
 {
+  shader.bind();
   // bind appropriate textures
   unsigned int diffuseNr = 1;
   unsigned int specularNr = 1;
@@ -26,15 +27,13 @@ void Mesh::draw(Shader &shader)
     if (name == "texture_diffuse")
       number = std::to_string(diffuseNr++);
     else if (name == "texture_specular")
-      number = std::to_string(specularNr++); // transfer unsigned int to string
+      number = std::to_string(specularNr++);
     else if (name == "texture_normal")
-      number = std::to_string(normalNr++); // transfer unsigned int to string
+      number = std::to_string(normalNr++);
     else if (name == "texture_height")
-      number = std::to_string(heightNr++); // transfer unsigned int to string
+      number = std::to_string(heightNr++);
 
-    // now set the sampler to the correct texture unit
     shader.setInt((name + number).c_str(), i);
-    // and finally bind the texture
     glCall(glBindTexture(GL_TEXTURE_2D, textures[i].id));
   }
 
@@ -43,7 +42,6 @@ void Mesh::draw(Shader &shader)
   glCall(glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0));
   glCall(glBindVertexArray(0));
 
-  // always good practice to set everything back to defaults once configured.
   glCall(glActiveTexture(GL_TEXTURE0));
 }
 

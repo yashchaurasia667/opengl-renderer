@@ -19,8 +19,8 @@ struct VertexType
   glm::vec2 texCoords;
   glm::vec3 tangent;
   glm::vec3 bitangent;
-  int m_BoneIDs[MAX_BONE_INFLUENCE];
-  float m_Weights[MAX_BONE_INFLUENCE];
+  glm::ivec4 m_BoneIDs[MAX_BONE_INFLUENCE];
+  glm::vec4 m_Weights[MAX_BONE_INFLUENCE];
 };
 
 struct TextureType

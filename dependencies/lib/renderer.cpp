@@ -38,12 +38,12 @@ Renderer::~Renderer()
   glfwTerminate();
 }
 
-void Renderer::start(void (*game_loop)(), Shader &shader)
+void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader)
 {
   while (!glfwWindowShouldClose(window))
   {
-    if (game_loop)
-      game_loop();
+    if (game_loop && window)
+      game_loop(window, shader);
 
     for (unsigned int i = 0; i < models.size(); i++)
       models[i].draw(shader);
