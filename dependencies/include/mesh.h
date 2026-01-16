@@ -6,6 +6,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <shader.h>
+#include <vertexArray.h>
+#include <vertexBuffer.h>
+#include <vertexBufferLayout.h>
+#include <indexBuffer.h>
 
 #include <string>
 #include <vector>
@@ -42,6 +46,7 @@ public:
   void draw(Shader &shader);
 
 private:
-  unsigned int VBO, EBO;
+  VertexBuffer vbo;
+  IndexBuffer ibo;
   void setupMesh();
 };

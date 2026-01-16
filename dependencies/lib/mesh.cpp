@@ -49,15 +49,10 @@ void Mesh::setupMesh()
 {
   // create buffers/arrays
   glCall(glGenVertexArrays(1, &VAO));
-  glCall(glGenBuffers(1, &VBO));
-  glCall(glGenBuffers(1, &EBO));
-
   glCall(glBindVertexArray(VAO));
-  glCall(glBindBuffer(GL_ARRAY_BUFFER, VBO));
-  glCall(glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(VertexType), &vertices[0], GL_STATIC_DRAW));
 
-  glCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO));
-  glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW));
+  vbo.setData(sizeof(VertexType) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
+  ibo.setData(sizeof(unsigned int) * indices.size(), &indices[0], GL_STATIC_DRAW);
 
   // vertex Positions
   glCall(glEnableVertexAttribArray(0));
@@ -77,7 +72,6 @@ void Mesh::setupMesh()
   // ids
   glCall(glEnableVertexAttribArray(5));
   glCall(glVertexAttribIPointer(5, 4, GL_INT, sizeof(VertexType), (void *)offsetof(VertexType, m_BoneIDs)));
-
   // weights
   glCall(glEnableVertexAttribArray(6));
   glCall(glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(VertexType), (void *)offsetof(VertexType, m_Weights)));
