@@ -4,6 +4,7 @@
 #include <stb_image.h>
 
 #include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <assimp/Importer.hpp>
@@ -22,16 +23,37 @@
 #include <vector>
 
 // constructor, expects a filepath to a 3D model.
-Model::Model(std::string const &path, bool gamma = false) : gammaCorrection(gamma)
+Model::Model(std::string const &path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale, bool gamma = false) : gammaCorrection(gamma)
 {
+  this->rotation = rotation;
+  this->position = position;
+  this->scale = scale;
   loadModel(path);
+}
+
+glm::mat4 Model::getModelMatrix()
+{
+  // assuming the rotation values are degrees
+  glm::mat4 model = glm::mat4(1.0f);
+  model = glm::translate(model, position);
+  if (rotation.x != 0.0f)
+    model = glm::rotate(model, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
+  if (rotation.y != 0.0f)
+    model = glm::rotate(model, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
+  model = glm::scale(model, scale);
+
+  return model;
 }
 
 // draws the model, and thus all its meshes
 void Model::draw(Shader &shader)
 {
   for (unsigned int i = 0; i < meshes.size(); i++)
+  {
+    shader.bind();
+    shader.setMat4("model", getModelMatrix());
     meshes[i].draw(shader);
+  }
 }
 
 void Model::loadModel(std::string const &path)

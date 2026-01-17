@@ -10,25 +10,28 @@
 #define STB_IMAGE_IMPLEMENTATION
 
 void gameLoop(GLFWwindow *window, Shader &shader);
+void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods);
 void mouseCallback(GLFWwindow *window, double xposin, double yposin);
+void inspectModel(GLFWwindow *window, double xposin, double yposin);
 void scrollCallback(GLFWwindow *window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 void framebufferSizeCallback(GLFWwindow *window, int width, int height);
 
 bool cursor = false;
-Camera camera(glm::vec3(0.0f), 45.0f, 0.1f, 2.5f);
+bool cameraMovement = false;
+Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), 45.0f, 0.1f, 2.5f);
+Renderer ren("renderer window", 800, 600, "../resources/square.obj");
 
 int main()
 {
-  Renderer ren("renderer window", 800, 600, "../resources/square.obj");
-  ren.setCursorMode(GLFW_CURSOR_DISABLED);
   ren.setFrameBufferCallback(framebufferSizeCallback);
-  ren.setCursorPosCallback(mouseCallback);
   ren.setScrollCallback(scrollCallback);
-  
+  ren.setMouseButtonCallback(mouseButtonCallback);
+
   Shader def("../shaders/cube.vs", "../shaders/cube.fs");
-  
-  ren.addModel("../resources/object/monkey.obj");
+
+  ren.addModel("../resources/monkey/monkey.obj", glm::vec3(0.0f), glm::vec2(0.0f), glm::vec3(2.0f));
+  ren.addModel("../resources/donut/donut.obj", glm::vec3(5.0f, 0.0f, 0.0f), glm::vec2(180.0f, 90.0f), glm::vec3(1.0f));
   ren.start(gameLoop, def);
   return 0;
 }
@@ -38,15 +41,10 @@ void gameLoop(GLFWwindow *window, Shader &shader)
   camera.updateFrame();
   processInput(window);
 
-  glm::mat4 model = glm::mat4(1.0f);
-  model = glm::scale(model, glm::vec3(3.0f));
-  model = glm::translate(model, glm::vec3(0.0f, 0.0f, -1.0f));
-  // model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
   glm::mat4 view = camera.getViewMatrix();
-  glm::mat4 projection = glm::perspective(camera.getFov(), 800.0f / 600.0f, 0.1f, 100.0f);
+  glm::mat4 projection = glm::perspective(camera.getFov(), static_cast<float>(ren.width) / static_cast<float>(ren.height), 0.1f, 100.0f);
 
   shader.bind();
-  shader.setMat4("model", model);
   shader.setMat4("view", view);
   shader.setMat4("projection", projection);
 
@@ -56,6 +54,8 @@ void gameLoop(GLFWwindow *window, Shader &shader)
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
 {
+  ren.width = width;
+  ren.height = height;
   glViewport(0, 0, width, height);
 }
 
@@ -68,7 +68,25 @@ void processInput(GLFWwindow *window)
     glfwSetInputMode(window, GLFW_CURSOR, cursor ? GLFW_CURSOR_DISABLED : GLFW_CURSOR_NORMAL);
     cursor = !cursor;
   }
-  camera.processMovement(window);
+  if (cameraMovement)
+    camera.processMovement(window);
+}
+
+void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
+{
+  if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+  {
+    ren.setCursorMode(GLFW_CURSOR_DISABLED);
+    cameraMovement = true;
+    ren.setCursorPosCallback(mouseCallback);
+  }
+  else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE)
+  {
+    camera.firstMouse = true;
+    cameraMovement = false;
+    ren.setCursorMode(GLFW_CURSOR_NORMAL);
+    ren.setCursorPosCallback(nullptr);
+  }
 }
 
 void mouseCallback(GLFWwindow *window, double xposin, double yposin)
@@ -77,6 +95,12 @@ void mouseCallback(GLFWwindow *window, double xposin, double yposin)
   float x = static_cast<float>(xposin);
   float y = static_cast<float>(yposin);
   camera.updateView(x, y);
+}
+
+void inspectModel(GLFWwindow *window, double xposin, double yposin)
+{
+  float x = static_cast<float>(xposin);
+  float y = static_cast<float>(yposin);
 }
 
 void scrollCallback(GLFWwindow *window, double xoffset, double yoffset)

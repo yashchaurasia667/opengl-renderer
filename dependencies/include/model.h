@@ -21,7 +21,7 @@ private:
   std::string directory;
   bool gammaCorrection;
 
-  glm::vec3 rotation;
+  glm::vec2 rotation;
   glm::vec3 position;
   glm::vec3 scale;
 
@@ -31,6 +31,7 @@ private:
   std::vector<TextureType> loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName);
 
 public:
-  Model(std::string const &path, bool gamma);
+  Model(std::string const &path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale, bool gamma);
+  glm::mat4 getModelMatrix();
   void draw(Shader &shader);
 };

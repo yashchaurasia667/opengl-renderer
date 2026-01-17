@@ -5,9 +5,14 @@
 
 GLFWwindow *Renderer::window = nullptr;
 std::vector<Model> Renderer::models;
+int Renderer::width = 0;
+int Renderer::height = 0;
 
 Renderer::Renderer(const char *title, int width, int height, const char *object_path)
 {
+  Renderer::width = width;
+  Renderer::height = height;
+
   if (window)
     throw std::runtime_error("window is already initialized");
   glfwInit();
@@ -53,14 +58,19 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
   }
 }
 
-void Renderer::addModel(std::string path)
+void Renderer::addModel(std::string path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale)
 {
-  models.push_back(Model(path, false));
+  models.push_back(Model(path, position, rotation, scale, false));
 }
 
 GLFWwindow *Renderer::getWindow()
 {
   return window;
+}
+
+glm::vec2 Renderer::getWindowSize()
+{
+  return glm::vec2();
 }
 
 void Renderer::setCursorMode(unsigned int mode)
@@ -69,19 +79,24 @@ void Renderer::setCursorMode(unsigned int mode)
     glfwSetInputMode(window, GLFW_CURSOR, mode);
 }
 
-void Renderer::setFrameBufferCallback(frameBufferSizeCallbackFun callback)
+void Renderer::setFrameBufferCallback(GLFWframebuffersizefun callback)
 {
   if (window)
     glfwSetFramebufferSizeCallback(window, callback);
 }
 
-void Renderer::setCursorPosCallback(mouseCallbackFun callback)
+void Renderer::setCursorPosCallback(GLFWcursorposfun callback)
 {
   if (window)
     glfwSetCursorPosCallback(window, callback);
 }
 
-void Renderer::setScrollCallback(mouseCallbackFun callback)
+void Renderer::setMouseButtonCallback(GLFWmousebuttonfun callback)
+{
+  glfwSetMouseButtonCallback(window, callback);
+}
+
+void Renderer::setScrollCallback(GLFWscrollfun callback)
 {
   if (window)
     glfwSetScrollCallback(window, callback);

@@ -17,9 +17,9 @@ private:
   float lastX, lastY;
 
   float deltaTime, lastFrame;
-  bool firstMouse;
 
 public:
+  bool firstMouse;
   Camera(glm::vec3 pos, float fov, float sensitivity, float speed);
 
   glm::mat4 getViewMatrix();
