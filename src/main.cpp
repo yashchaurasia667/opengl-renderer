@@ -12,44 +12,47 @@
 void gameLoop(GLFWwindow *window, Shader &shader);
 void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods);
 void mouseCallback(GLFWwindow *window, double xposin, double yposin);
-void inspectModel(GLFWwindow *window, double xposin, double yposin);
 void scrollCallback(GLFWwindow *window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 void framebufferSizeCallback(GLFWwindow *window, int width, int height);
+void glfwErrorCallback(int error, const char *description);
 
 bool cursor = false;
 bool cameraMovement = false;
+
 Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), 45.0f, 0.1f, 2.5f);
-Renderer ren("renderer window", 800, 600, "../resources/square.obj");
+Renderer ren("renderer window", 800, 600, "../resources/square.obj", "#version 330 core");
 
 int main()
 {
   ren.setFrameBufferCallback(framebufferSizeCallback);
   ren.setScrollCallback(scrollCallback);
   ren.setMouseButtonCallback(mouseButtonCallback);
+  ren.setErrorCallback(glfwErrorCallback);
 
   Shader def("../shaders/cube.vs", "../shaders/cube.fs");
 
   ren.addModel("../resources/monkey/monkey.obj", glm::vec3(0.0f), glm::vec2(0.0f), glm::vec3(2.0f));
   ren.addModel("../resources/donut/donut.obj", glm::vec3(5.0f, 0.0f, 0.0f), glm::vec2(180.0f, 90.0f), glm::vec3(1.0f));
   ren.start(gameLoop, def);
+
   return 0;
 }
 
 void gameLoop(GLFWwindow *window, Shader &shader)
 {
+  glCall(glClearColor(0.1f, 0.3f, 0.3f, 1.0f));
+  glCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
+
   camera.updateFrame();
   processInput(window);
 
   glm::mat4 view = camera.getViewMatrix();
-  glm::mat4 projection = glm::perspective(camera.getFov(), static_cast<float>(ren.width) / static_cast<float>(ren.height), 0.1f, 100.0f);
+  glm::mat4 projection = glm::perspective(camera.getFov(), (float)ren.width / (float)ren.height, 0.1f, 100.0f);
 
   shader.bind();
   shader.setMat4("view", view);
   shader.setMat4("projection", projection);
-
-  glCall(glClearColor(0.1f, 0.3f, 0.3f, 1.0f));
-  glCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 }
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
@@ -97,16 +100,15 @@ void mouseCallback(GLFWwindow *window, double xposin, double yposin)
   camera.updateView(x, y);
 }
 
-void inspectModel(GLFWwindow *window, double xposin, double yposin)
-{
-  float x = static_cast<float>(xposin);
-  float y = static_cast<float>(yposin);
-}
-
 void scrollCallback(GLFWwindow *window, double xoffset, double yoffset)
 {
   // std::cout << "scroll" << std::endl;
   float x = static_cast<float>(xoffset);
   float y = static_cast<float>(yoffset);
   camera.updateZoom(x, y);
+}
+
+void glfwErrorCallback(int error, const char *description)
+{
+  std::cout << "ERROR::GLFW::" << description << std::endl;
 }
