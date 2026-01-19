@@ -21,7 +21,7 @@ bool cursor = false;
 bool cameraMovement = false;
 
 Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), 45.0f, 0.1f, 2.5f);
-Renderer ren("renderer window", 800, 600, "../resources/square.obj", "#version 330 core");
+Renderer ren("renderer window", 800, 600, "../resources/square.obj", "#version 330 core", true);
 
 int main()
 {
