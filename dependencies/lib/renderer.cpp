@@ -5,15 +5,30 @@
 
 GLFWwindow *Renderer::window = nullptr;
 std::vector<Model> Renderer::models;
-float Renderer::main_scale = 0.0f;
 int Renderer::width = 0;
 int Renderer::height = 0;
-ImGuiIO *io = nullptr;
 
-Renderer::Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version)
+float Renderer::main_scale = 0.0f;
+ImGuiIO *Renderer::io = nullptr;
+GLFWmousebuttonfun Renderer::glfw_mouse_button_callback = nullptr;
+GLFWmousebuttonfun Renderer::imgui_mouse_button_callback = nullptr;
+
+void GLFWMouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
 {
-  Renderer::width = width;
-  Renderer::height = height;
+  if (Renderer::imgui_mouse_button_callback)
+    Renderer::imgui_mouse_button_callback(window, button, action, mods);
+
+  if (Renderer::io && Renderer::io->WantCaptureMouse)
+    return;
+
+  if (Renderer::glfw_mouse_button_callback)
+    Renderer::glfw_mouse_button_callback(window, button, action, mods);
+}
+
+Renderer::Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version, bool vsync = false)
+{
+  this->width = width;
+  this->height = height;
 
   if (window)
     throw std::runtime_error("window is already initialized");
@@ -29,6 +44,9 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
   if (window == NULL)
     throw std::runtime_error("Failed to create a GLFW window");
   glfwMakeContextCurrent(window);
+  if (vsync)
+    glfwSwapInterval(1);
+
   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     throw std::runtime_error("Failed to load OpenGL function pointers");
 
@@ -36,12 +54,15 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
 
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
-  ImGuiIO &io = ImGui::GetIO();
-  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
-  io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
+  io = &ImGui::GetIO();
+  io->ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
+  io->ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
 
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
+
+  imgui_mouse_button_callback = glfwSetMouseButtonCallback(window, nullptr);
+  glfwSetMouseButtonCallback(window, GLFWMouseButtonCallback);
 }
 
 Renderer::~Renderer()
@@ -63,10 +84,17 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
   while (!glfwWindowShouldClose(window))
   {
     glfwPollEvents();
+
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
-    ImGui::ShowDemoWindow(); // Show demo window! :)
+
+    ImGui::Begin("Imgui window");
+    if (ImGui::Button("click me"))
+      std::cout << "button clicked" << std::endl;
+    float slider_value = 0.0f;
+    ImGui::SliderFloat("Slider", &slider_value, 0.0f, 1.0f);
+    ImGui::End();
 
     if (game_loop && window)
       game_loop(window, shader);
@@ -90,11 +118,6 @@ GLFWwindow *Renderer::getWindow()
   return window;
 }
 
-glm::vec2 Renderer::getWindowSize()
-{
-  return glm::vec2();
-}
-
 void Renderer::setCursorMode(unsigned int mode)
 {
   if (window)
@@ -115,7 +138,8 @@ void Renderer::setCursorPosCallback(GLFWcursorposfun callback)
 
 void Renderer::setMouseButtonCallback(GLFWmousebuttonfun callback)
 {
-  glfwSetMouseButtonCallback(window, callback);
+  // glfwSetMouseButtonCallback(window, callback);
+  glfw_mouse_button_callback = callback;
 }
 
 void Renderer::setScrollCallback(GLFWscrollfun callback)
