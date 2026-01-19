@@ -11,27 +11,21 @@ int Renderer::height = 0;
 float Renderer::main_scale = 0.0f;
 ImGuiIO *Renderer::io = nullptr;
 GLFWmousebuttonfun Renderer::glfw_mouse_button_callback = nullptr;
-GLFWmousebuttonfun Renderer::imgui_mouse_button_callback = nullptr;
 
 void GLFWMouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
 {
-  if (Renderer::imgui_mouse_button_callback)
-    Renderer::imgui_mouse_button_callback(window, button, action, mods);
-
-  if (Renderer::io && Renderer::io->WantCaptureMouse)
-    return;
-
   if (Renderer::glfw_mouse_button_callback)
     Renderer::glfw_mouse_button_callback(window, button, action, mods);
 }
 
 Renderer::Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version, bool vsync = false)
 {
+  if (window)
+    throw std::runtime_error("window is already initialized");
+
   this->width = width;
   this->height = height;
 
-  if (window)
-    throw std::runtime_error("window is already initialized");
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -51,6 +45,7 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
     throw std::runtime_error("Failed to load OpenGL function pointers");
 
   glCall(glEnable(GL_DEPTH_TEST));
+  glfwSetMouseButtonCallback(window, GLFWMouseButtonCallback);
 
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
@@ -60,9 +55,6 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
 
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
-
-  imgui_mouse_button_callback = glfwSetMouseButtonCallback(window, nullptr);
-  glfwSetMouseButtonCallback(window, GLFWMouseButtonCallback);
 }
 
 Renderer::~Renderer()
@@ -85,15 +77,36 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
   {
     glfwPollEvents();
 
+    static char path[128] = "\0";
+    static float px = 0, py = 0, pz = 0;
+    static float rx = 0, ry = 0;
+    static float scale = 1.0;
+
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    ImGui::Begin("Imgui window");
-    if (ImGui::Button("click me"))
-      std::cout << "button clicked" << std::endl;
-    float slider_value = 0.0f;
-    ImGui::SliderFloat("Slider", &slider_value, 0.0f, 1.0f);
+    ImGui::Begin("OpenGL Renderer");
+    ImGui::InputText("path", path, 128);
+
+    ImGui::Text("Position");
+    ImGui::InputFloat("px", &px);
+    ImGui::InputFloat("py", &py);
+    ImGui::InputFloat("pz", &pz);
+
+    ImGui::Text("Rotation");
+    ImGui::InputFloat("rx", &rx);
+    ImGui::InputFloat("ry", &ry);
+
+    ImGui::InputFloat("Scale", &scale);
+
+    if (ImGui::Button("Add Model") && strncmp(path, "\0", 1) != 0)
+    {
+      std::cout << "Loading model" << std::endl;
+      models.push_back(Model(path, glm::vec3(px, py, pz), glm::vec2(rx, ry), glm::vec3(scale), false));
+      // models.push_back(Model(path, glm::vec3(0.0f), glm::vec2(1.0f), glm::vec3(1.0f), false));
+    }
+
     ImGui::End();
 
     if (game_loop && window)
