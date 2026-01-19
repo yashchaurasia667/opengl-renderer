@@ -32,8 +32,8 @@ int main()
 
   Shader def("../shaders/cube.vs", "../shaders/cube.fs");
 
-  ren.addModel("../resources/monkey/monkey.obj", glm::vec3(0.0f), glm::vec2(0.0f), glm::vec3(2.0f));
-  ren.addModel("../resources/donut/donut.obj", glm::vec3(5.0f, 0.0f, 0.0f), glm::vec2(180.0f, 90.0f), glm::vec3(1.0f));
+  // ren.addModel("../resources/monkey/monkey.obj", glm::vec3(0.0f), glm::vec2(0.0f), glm::vec3(2.0f));
+  // ren.addModel("../resources/donut/donut.obj", glm::vec3(5.0f, 0.0f, 0.0f), glm::vec2(180.0f, 90.0f), glm::vec3(1.0f));
   ren.start(gameLoop, def);
 
   return 0;
