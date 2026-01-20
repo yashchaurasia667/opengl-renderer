@@ -29,5 +29,5 @@ public:
   void updateFrame();
   void processMovement(GLFWwindow *window);
   void updateView(float xpos, float ypos);
-  void updateZoom(float xoffset, float yoffset);
+  void updateZoom(float yoffset);
 };

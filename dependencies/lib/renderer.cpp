@@ -77,37 +77,62 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
   {
     glfwPollEvents();
 
-    static char path[128] = "\0";
-    static float px = 0, py = 0, pz = 0;
-    static float rx = 0, ry = 0;
-    static float scale = 1.0;
-
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    ImGui::Begin("OpenGL Renderer");
-    ImGui::InputText("path", path, 128);
-
-    ImGui::Text("Position");
-    ImGui::InputFloat("px", &px);
-    ImGui::InputFloat("py", &py);
-    ImGui::InputFloat("pz", &pz);
-
-    ImGui::Text("Rotation");
-    ImGui::InputFloat("rx", &rx);
-    ImGui::InputFloat("ry", &ry);
-
-    ImGui::InputFloat("Scale", &scale);
-
-    if (ImGui::Button("Add Model") && strncmp(path, "\0", 1) != 0)
+    // ADD MODEL WINDOW
     {
-      std::cout << "Loading model" << std::endl;
-      models.push_back(Model(path, glm::vec3(px, py, pz), glm::vec2(rx, ry), glm::vec3(scale), false));
-      // models.push_back(Model(path, glm::vec3(0.0f), glm::vec2(1.0f), glm::vec3(1.0f), false));
-    }
+      static char path[128] = "../resources/donut/donut.obj";
+      static float px = 0, py = 0, pz = 0;
+      static float rx = 0, ry = 0;
+      static float scale = 1.0;
 
-    ImGui::End();
+      ImGui::Begin("OpenGL Renderer");
+      ImGui::InputText("path", path, 128);
+
+      ImGui::Text("Position");
+      ImGui::InputFloat("px", &px);
+      ImGui::InputFloat("py", &py);
+      ImGui::InputFloat("pz", &pz);
+
+      ImGui::Text("Rotation");
+      ImGui::InputFloat("rx", &rx);
+      ImGui::InputFloat("ry", &ry);
+
+      ImGui::InputFloat("Scale", &scale);
+
+      if (ImGui::Button("Add Model") && strncmp(path, "\0", 1) != 0)
+      {
+        std::cout << "Loading model" << std::endl;
+        models.push_back(Model(path, glm::vec3(px, py, pz), glm::vec2(rx, ry), glm::vec3(scale), false));
+        // models.push_back(Model(path, glm::vec3(0.0f), glm::vec2(1.0f), glm::vec3(1.0f), false));
+      }
+
+      ImGui::End();
+    }
+    // LOADED MODELS WINDOW
+    {
+      ImGui::Begin("Loaded Models");
+      for (unsigned int i = 0; i < models.size(); i++)
+      {
+        if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
+        {
+
+          ImGui::Text("Position");
+          ImGui::Text(std::to_string(models[i].position.x).c_str());
+          ImGui::Text(std::to_string(models[i].position.y).c_str());
+          ImGui::Text(std::to_string(models[i].position.z).c_str());
+
+          ImGui::Text("Rotation");
+          ImGui::Text(std::to_string(models[i].rotation.x).c_str());
+          ImGui::Text(std::to_string(models[i].rotation.y).c_str());
+
+          ImGui::Text(std::to_string(models[i].scale.x).c_str());
+        }
+      }
+      ImGui::End();
+    }
 
     if (game_loop && window)
       game_loop(window, shader);

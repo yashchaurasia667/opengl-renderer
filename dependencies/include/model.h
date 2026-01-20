@@ -21,16 +21,16 @@ private:
   std::string directory;
   bool gammaCorrection;
 
-  glm::vec2 rotation;
-  glm::vec3 position;
-  glm::vec3 scale;
-
   void loadModel(std::string const &path);
   void processNode(aiNode *node, const aiScene *scene);
   Mesh processMesh(aiMesh *mesh, const aiScene *scene);
   std::vector<TextureType> loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName);
 
 public:
+  glm::vec2 rotation;
+  glm::vec3 position;
+  glm::vec3 scale;
+
   Model(std::string const &path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale, bool gamma);
   glm::mat4 getModelMatrix();
   void draw(Shader &shader);

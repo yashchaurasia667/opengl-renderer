@@ -102,10 +102,7 @@ void mouseCallback(GLFWwindow *window, double xposin, double yposin)
 
 void scrollCallback(GLFWwindow *window, double xoffset, double yoffset)
 {
-  // std::cout << "scroll" << std::endl;
-  float x = static_cast<float>(xoffset);
-  float y = static_cast<float>(yoffset);
-  camera.updateZoom(x, y);
+  camera.updateZoom((float)yoffset);
 }
 
 void glfwErrorCallback(int error, const char *description)
