@@ -89,7 +89,7 @@ void Camera::updateView(float xpos, float ypos)
   front = direction;
 }
 
-void Camera::updateZoom(float xoffset, float yoffset)
+void Camera::updateZoom(float yoffset)
 {
   fov -= yoffset;
   if (fov < 1.0f)
