@@ -53,6 +53,9 @@ void gameLoop(GLFWwindow *window, Shader &shader)
   shader.bind();
   shader.setMat4("view", view);
   shader.setMat4("projection", projection);
+  shader.setInt("numPointLights", 0);
+  shader.setInt("numDirectionalLights", 0);
+  shader.setInt("numSpotLights", 0);
 }
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
