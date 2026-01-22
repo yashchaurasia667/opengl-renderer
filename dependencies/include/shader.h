@@ -13,6 +13,7 @@ private:
   unsigned int createShader(GLenum type, const char *path);
 
 public:
+  Shader() = default;
   Shader(const char *vertex_path, const char *fragment_path);
   ~Shader();
 

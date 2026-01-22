@@ -2,6 +2,8 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+#include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 #include <imgui.h>
@@ -12,7 +14,14 @@
 #include <string>
 
 #include <shader.h>
+#include <camera.h>
 #include <model.h>
+
+struct LightType
+{
+  Model model;
+  glm::vec3 color;
+};
 
 class Renderer
 {
@@ -20,7 +29,10 @@ private:
   static float main_scale;
   static GLFWwindow *window;
   static std::vector<Model> models;
+  static std::vector<LightType> lights;
   static ImGuiIO *io;
+  static Shader lightShader;
+  static void drawLights();
 
 public:
   static int width, height;
@@ -28,8 +40,9 @@ public:
 
   Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version, bool vsync);
   ~Renderer();
-  void start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader);
-  void addModel(std::string path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale);
+  static void start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader);
+  static void addModel(std::string path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale);
+  static void addLight(glm::vec3 position, glm::vec3 color);
 
   static GLFWwindow *getWindow();
   static void setCursorMode(unsigned int mode);
