@@ -98,7 +98,7 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
 
     // ADD MODEL WINDOW
     {
-      static char path[128] = "../resources/donut/donut.obj";
+      static char path[128] = "../resources/monkey/monkey.obj";
       static float px = 0, py = 0, pz = 0;
       static float rx = 0, ry = 0;
       static float scale = 1.0;

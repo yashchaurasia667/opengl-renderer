@@ -53,10 +53,22 @@ void gameLoop(GLFWwindow *window, Shader &shader)
   shader.bind();
   shader.setMat4("view", view);
   shader.setMat4("projection", projection);
-  shader.setInt("numPointLights", 0);
+  shader.setInt("numPointLights", 1);
   shader.setInt("numDirectionalLights", 1);
   shader.setInt("numSpotLights", 0);
 
+  shader.setVec3("directionalLights[0].direction", glm::vec3(0.3f, 0.4f, 0.0f));
+  shader.setVec3("directionalLights[0].ambient", glm::vec3(0.3f));
+  shader.setVec3("directionalLights[0].diffuse", glm::vec3(0.5f));
+  shader.setVec3("directionalLights[0].specular", glm::vec3(0.5f));
+
+  shader.setVec3("pointLights[0].position", glm::vec3(0.0f, 0.4f, 0.0f));
+  shader.setVec3("pointLights[0].ambient", glm::vec3(0.3f));
+  shader.setVec3("pointLights[0].diffuse", glm::vec3(1.0f));
+  shader.setVec3("pointLights[0].specular", glm::vec3(1.0f));
+  shader.setFloat("pointLights[0].constant", 1.0f);
+  shader.setFloat("pointLights[0].linear", 0.22f);
+  shader.setFloat("pointLights[0].quadratic", 0.20f);
 }
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
