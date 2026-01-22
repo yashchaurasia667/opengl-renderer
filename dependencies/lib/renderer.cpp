@@ -8,6 +8,9 @@ std::vector<Model> Renderer::models;
 int Renderer::width = 0;
 int Renderer::height = 0;
 
+std::vector<LightType> Renderer::lights;
+Shader Renderer::lightShader;
+
 float Renderer::main_scale = 0.0f;
 ImGuiIO *Renderer::io = nullptr;
 GLFWmousebuttonfun Renderer::glfw_mouse_button_callback = nullptr;
@@ -55,6 +58,8 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
 
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
+
+  lightShader = Shader("../shaders/cube.vs", "../shaders/light.fs");
 }
 
 Renderer::~Renderer()
@@ -69,6 +74,16 @@ Renderer::~Renderer()
     window = nullptr;
   }
   glfwTerminate();
+}
+
+void Renderer::drawLights()
+{
+  for (unsigned int i = 0; i < lights.size(); i++)
+  {
+    lightShader.bind();
+    lightShader.setVec3("color", glm::vec3(1.0f));
+    lights[i].model.draw(lightShader);
+  }
 }
 
 void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader)
@@ -113,29 +128,51 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
     }
     // LOADED MODELS WINDOW
     {
-      ImGui::Begin("Loaded Models");
-      for (unsigned int i = 0; i < models.size(); i++)
+      ImGui::Begin("Loaded Stuff");
+
+      if (ImGui::CollapsingHeader("Models"))
       {
-        if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
+        for (unsigned int i = 0; i < models.size(); i++)
         {
+          if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
+          {
 
-          ImGui::Text("Position");
-          ImGui::Text(std::to_string(models[i].position.x).c_str());
-          ImGui::Text(std::to_string(models[i].position.y).c_str());
-          ImGui::Text(std::to_string(models[i].position.z).c_str());
+            ImGui::Text("Position");
+            ImGui::Text(std::to_string(models[i].position.x).c_str());
+            ImGui::Text(std::to_string(models[i].position.y).c_str());
+            ImGui::Text(std::to_string(models[i].position.z).c_str());
 
-          ImGui::Text("Rotation");
-          ImGui::Text(std::to_string(models[i].rotation.x).c_str());
-          ImGui::Text(std::to_string(models[i].rotation.y).c_str());
+            ImGui::Text("Rotation");
+            ImGui::Text(std::to_string(models[i].rotation.x).c_str());
+            ImGui::Text(std::to_string(models[i].rotation.y).c_str());
 
-          ImGui::Text(std::to_string(models[i].scale.x).c_str());
+            ImGui::Text(std::to_string(models[i].scale.x).c_str());
+          }
         }
       }
+
+      if (ImGui::CollapsingHeader("Lights"))
+      {
+        for (unsigned int i = 0; i < lights.size(); i++)
+        {
+          if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
+          {
+            ImGui::Text("Position");
+            ImGui::Text("(%.1f, %.1f, %.1f)", lights[i].model.position.x, lights[i].model.position.y, lights[i].model.position.z);
+
+            ImGui::Text("Color");
+            ImGui::Text("(%.1f, %.1f, %.1f)", lights[i].color.x, lights[i].color.y, lights[i].color.z);
+          }
+        }
+      }
+
       ImGui::End();
     }
 
     if (game_loop && window)
       game_loop(window, shader);
+
+    drawLights();
 
     for (unsigned int i = 0; i < models.size(); i++)
       models[i].draw(shader);
@@ -149,6 +186,15 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
 void Renderer::addModel(std::string path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale)
 {
   models.push_back(Model(path, position, rotation, scale, false));
+}
+
+void Renderer::addLight(glm::vec3 position, glm::vec3 color)
+{
+  Model lightModel("../resources/light.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false);
+  LightType light = {
+      lightModel,
+      color};
+  lights.push_back(light);
 }
 
 GLFWwindow *Renderer::getWindow()

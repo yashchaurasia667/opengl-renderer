@@ -21,20 +21,20 @@ bool cursor = false;
 bool cameraMovement = false;
 
 Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), 45.0f, 0.1f, 2.5f);
-Renderer ren("renderer window", 800, 600, "../resources/square.obj", "#version 330 core", true);
 
 int main()
 {
-  ren.setFrameBufferCallback(framebufferSizeCallback);
-  ren.setScrollCallback(scrollCallback);
-  ren.setMouseButtonCallback(mouseButtonCallback);
-  ren.setErrorCallback(glfwErrorCallback);
+  Renderer ren("renderer window", 800, 600, "../resources/square.obj", "#version 330 core", true);
+  Renderer::setFrameBufferCallback(framebufferSizeCallback);
+  Renderer::setScrollCallback(scrollCallback);
+  Renderer::setMouseButtonCallback(mouseButtonCallback);
+  Renderer::setErrorCallback(glfwErrorCallback);
 
   Shader def("../shaders/cube.vs", "../shaders/cube.fs");
 
-  // ren.addModel("../resources/monkey/monkey.obj", glm::vec3(0.0f), glm::vec2(0.0f), glm::vec3(2.0f));
-  // ren.addModel("../resources/donut/donut.obj", glm::vec3(5.0f, 0.0f, 0.0f), glm::vec2(180.0f, 90.0f), glm::vec3(1.0f));
-  ren.start(gameLoop, def);
+  // TODO: FIX LIGHT COLOR SHOWING AS BLACK
+  Renderer::addLight(glm::vec3(0.0f), glm::vec3(1.0f));
+  Renderer::start(gameLoop, def);
 
   return 0;
 }
@@ -48,20 +48,21 @@ void gameLoop(GLFWwindow *window, Shader &shader)
   processInput(window);
 
   glm::mat4 view = camera.getViewMatrix();
-  glm::mat4 projection = glm::perspective(camera.getFov(), (float)ren.width / (float)ren.height, 0.1f, 100.0f);
+  glm::mat4 projection = glm::perspective(camera.getFov(), (float)Renderer::width / (float)Renderer::height, 0.1f, 100.0f);
 
   shader.bind();
   shader.setMat4("view", view);
   shader.setMat4("projection", projection);
   shader.setInt("numPointLights", 0);
-  shader.setInt("numDirectionalLights", 0);
+  shader.setInt("numDirectionalLights", 1);
   shader.setInt("numSpotLights", 0);
+
 }
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
 {
-  ren.width = width;
-  ren.height = height;
+  Renderer::width = width;
+  Renderer::height = height;
   glViewport(0, 0, width, height);
 }
 
@@ -82,16 +83,16 @@ void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
 {
   if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
   {
-    ren.setCursorMode(GLFW_CURSOR_DISABLED);
+    Renderer::setCursorMode(GLFW_CURSOR_DISABLED);
     cameraMovement = true;
-    ren.setCursorPosCallback(mouseCallback);
+    Renderer::setCursorPosCallback(mouseCallback);
   }
   else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE)
   {
     camera.firstMouse = true;
     cameraMovement = false;
-    ren.setCursorMode(GLFW_CURSOR_NORMAL);
-    ren.setCursorPosCallback(nullptr);
+    Renderer::setCursorMode(GLFW_CURSOR_NORMAL);
+    Renderer::setCursorPosCallback(nullptr);
   }
 }
 
