@@ -7,6 +7,7 @@ GLFWwindow *Renderer::window = nullptr;
 std::vector<Model> Renderer::models;
 int Renderer::width = 0;
 int Renderer::height = 0;
+float Renderer::ambient = 0.3f, Renderer::diffuse = 1.0f, Renderer::specular = 1.0f;
 
 std::vector<LightType> Renderer::lights;
 Shader Renderer::lightShader;
@@ -85,32 +86,34 @@ Renderer::~Renderer()
   glfwTerminate();
 }
 
-void Renderer::drawLights(glm::mat4 view, glm::mat4 projection)
+void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
 {
   for (unsigned int i = 0; i < lights.size(); i++)
   {
-    glm::mat4 model = lights[i].model.getModelMatrix();
+    if (lights[i].type == POINT)
+    {
+      glm::mat4 model = lights[i].model.getModelMatrix();
 
-    lightShader.bind();
+      lightShader.bind();
+      lightShader.setMat4("model", model);
+      lightShader.setMat4("view", view);
+      lightShader.setMat4("projection", projection);
+      lightShader.setVec3("color", lights[i].color);
+      lights[i].model.draw(lightShader);
+    }
 
-    // Check uniform location
-    // GLint colorLoc = glGetUniformLocation(lightShader.getId(), "color");
-    // std::cout << "Color uniform location: " << colorLoc << std::endl;
+    std::string lightstr = "pointLights";
+    lightstr += "[" + std::to_string(i) + "]";
 
-    // Check if shader is actually bound
-    // GLint currentProgram;
-    // glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
-    // std::cout << "Current shader program: " << currentProgram << std::endl;
-
-    lightShader.setMat4("model", model);
-    lightShader.setMat4("view", view);
-    lightShader.setMat4("projection", projection);
-    lightShader.setVec3("color", lights[i].color);
-
-    // std::cout << "Light color: " << lights[i].color.x << ", "
-    //           << lights[i].color.y << ", " << lights[i].color.z << std::endl;
-
-    lights[i].model.draw(lightShader);
+    shader.bind();
+    shader.setVec3((lightstr + ".position").c_str(), lights[i].model.position);
+    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(ambient));
+    shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
+    shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
+    shader.setVec3((lightstr + ".color").c_str(), lights[i].color);
+    shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
+    shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
+    shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
   }
 }
 
@@ -126,7 +129,7 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
 
     // ADD MODEL WINDOW
     {
-      static char path[128] = "../resources/monkey/monkey.obj";
+      static char path[128] = "../resources/donut/donut.obj";
       static float px = 0, py = 0, pz = 0;
       static float rx = 0, ry = 0;
       static float scale = 1.0;
@@ -200,9 +203,13 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
     if (game_loop && window)
       game_loop(window, shader);
 
+    shader.setInt("numPointLights", lights.size());
+    shader.setInt("numDirectionalLights", 0);
+    shader.setInt("numSpotLights", 0);
+
     glm::mat4 view = camera.getViewMatrix();
     glm::mat4 projection = glm::perspective(camera.getFov(), (float)Renderer::width / (float)Renderer::height, 0.1f, 100.0f);
-    drawLights(view, projection);
+    drawLights(view, projection, shader);
 
     for (unsigned int i = 0; i < models.size(); i++)
       models[i].draw(shader);
@@ -218,12 +225,15 @@ void Renderer::addModel(std::string path, glm::vec3 position, glm::vec2 rotation
   models.push_back(Model(path, position, rotation, scale, false));
 }
 
-void Renderer::addLight(glm::vec3 position, glm::vec3 color)
+void Renderer::addLight(glm::vec3 position, glm::vec3 color, float strength, LightTypeList type)
 {
   Model lightModel("../resources/light.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false);
   LightType light = {
       lightModel,
-      color};
+      color,
+      strength,
+      type,
+  };
   lights.push_back(light);
 }
 
