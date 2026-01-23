@@ -32,7 +32,7 @@ private:
   static std::vector<LightType> lights;
   static ImGuiIO *io;
   static Shader lightShader;
-  static void drawLights();
+  static void drawLights(glm::mat4 view, glm::mat4 projection);
 
 public:
   static int width, height;
@@ -40,11 +40,12 @@ public:
 
   Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version, bool vsync);
   ~Renderer();
-  static void start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader);
+  static void start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader, Camera &camera);
   static void addModel(std::string path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale);
   static void addLight(glm::vec3 position, glm::vec3 color);
 
   static GLFWwindow *getWindow();
+  static Shader& getLightShader();
   static void setCursorMode(unsigned int mode);
   static void setFrameBufferCallback(GLFWframebuffersizefun callback);
   static void setCursorPosCallback(GLFWcursorposfun callback);
