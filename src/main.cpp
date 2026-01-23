@@ -32,9 +32,8 @@ int main()
 
   Shader def("../shaders/cube.vs", "../shaders/cube.fs");
 
-  // TODO: FIX LIGHT COLOR SHOWING AS BLACK
-  Renderer::addLight(glm::vec3(0.0f), glm::vec3(1.0f));
-  Renderer::start(gameLoop, def);
+  Renderer::addLight(glm::vec3(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+  Renderer::start(gameLoop, def, camera);
 
   return 0;
 }
@@ -49,6 +48,11 @@ void gameLoop(GLFWwindow *window, Shader &shader)
 
   glm::mat4 view = camera.getViewMatrix();
   glm::mat4 projection = glm::perspective(camera.getFov(), (float)Renderer::width / (float)Renderer::height, 0.1f, 100.0f);
+
+  // Shader &lightShader = Renderer::getLightShader();
+  // lightShader.bind();
+  // lightShader.setMat4("view", view);
+  // lightShader.setMat4("projection", projection);
 
   shader.bind();
   shader.setMat4("view", view);

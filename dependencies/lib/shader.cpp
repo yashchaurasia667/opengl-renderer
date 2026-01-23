@@ -13,30 +13,29 @@ string Shader::getShaderSource(const char *path)
   if (!shader_file)
   {
     cout << "ERROR::SHADER::" << path << "::NOT SUCCESSFULLY READ" << endl;
-    return nullptr;
+    return "";
   }
 
+  cout << "Successfully read shader: " << path << endl; // Add this for debugging
   stringstream buffer;
   buffer << shader_file.rdbuf();
   string source = buffer.str();
+  cout << "Shader source length: " << source.length() << endl; // Add this too
   return source;
 }
 
-void Shader::checkCompileError(unsigned int id, string type)
+void Shader::checkCompileError(unsigned int id, const char *type)
 {
-  int success, len;
-  if (type != "PROGRAM")
+  int success;
+  char info[1024];
+  if (strcmp(type, "PROGRAM") != 0)
   {
     glCall(glGetShaderiv(id, GL_COMPILE_STATUS, &success));
     if (!success)
     {
-      glCall(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &len));
+      glCall(glGetShaderInfoLog(id, 1024, NULL, info));
 
-      char *info = (char *)malloc(len * sizeof(char));
-      glCall(glGetShaderInfoLog(id, len, NULL, info));
-
-      cout << "ERROR::SHADER_COMPILATION_ERROR of type " << type << "\n"
-           << info << endl;
+      cout << "ERROR::" << type << "::SHADER_COMPILATION_ERROR " << info << endl;
     }
   }
   else
@@ -44,18 +43,14 @@ void Shader::checkCompileError(unsigned int id, string type)
     glCall(glGetProgramiv(id, GL_LINK_STATUS, &success));
     if (!success)
     {
-      glCall(glGetProgramiv(id, GL_INFO_LOG_LENGTH, &len));
+      glCall(glGetProgramInfoLog(id, 1024, NULL, info));
 
-      char *info = (char *)malloc(len * sizeof(char));
-      glCall(glGetProgramInfoLog(id, len, NULL, info));
-
-      cout << "ERROR::PROGRAM_LINKING_ERROR of type " << type << "\n"
-           << info << endl;
+      cout << "ERROR::" << type << "::PROGRAM_LINKING_ERROR " << info << endl;
     }
   }
 }
 
-unsigned int Shader::createShader(GLenum type, const char *path)
+unsigned int Shader::createShader(GLenum type, const char *path, const char *shader_type)
 {
   unsigned int id = glCreateShader(type);
   string source = getShaderSource(path);
@@ -63,15 +58,15 @@ unsigned int Shader::createShader(GLenum type, const char *path)
 
   glCall(glShaderSource(id, 1, &c_source, NULL));
   glCall(glCompileShader(id));
-  checkCompileError(id, "SHADER");
+  checkCompileError(id, shader_type);
 
   return id;
 }
 
 Shader::Shader(const char *vertex_path, const char *fragment_path)
 {
-  unsigned int vertex_shader = createShader(GL_VERTEX_SHADER, vertex_path);
-  unsigned int fragment_shader = createShader(GL_FRAGMENT_SHADER, fragment_path);
+  unsigned int vertex_shader = createShader(GL_VERTEX_SHADER, vertex_path, "VERTEX_SHADER");
+  unsigned int fragment_shader = createShader(GL_FRAGMENT_SHADER, fragment_path, "FRAGMENT_SHADER");
 
   ID = glCreateProgram();
   glCall(glAttachShader(ID, vertex_shader));
@@ -84,9 +79,28 @@ Shader::Shader(const char *vertex_path, const char *fragment_path)
   glCall(glDeleteShader(fragment_shader));
 }
 
+Shader::Shader(Shader &&other) noexcept : ID(other.ID)
+{
+  other.ID = 0; // Steal the ID, and set the temporary's ID to 0
+}
+
+Shader &Shader::operator=(Shader &&other) noexcept
+{
+  if (this != &other)
+  {
+    glDeleteProgram(ID); // Delete the old program if it exists
+    ID = other.ID;       // Steal the ID from the temporary object
+    other.ID = 0;        // Set temporary's ID to 0 so its destructor does nothing
+  }
+  return *this;
+}
+
 Shader::~Shader()
 {
-  glCall(glDeleteProgram(ID));
+  if (ID != 0)
+  {
+    glCall(glDeleteProgram(ID));
+  }
 }
 
 void Shader::bind()
@@ -97,6 +111,11 @@ void Shader::bind()
 void Shader::unbind()
 {
   glCall(glUseProgram(0));
+}
+
+unsigned int Shader::getId()
+{
+  return ID;
 }
 
 void Shader::setInt(const char *name, int data)

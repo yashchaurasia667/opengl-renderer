@@ -59,7 +59,16 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
 
-  lightShader = Shader("../shaders/cube.vs", "../shaders/light.fs");
+  lightShader = Shader("../shaders/light.vs", "../shaders/light.fs");
+  GLint success;
+  glGetProgramiv(lightShader.getId(), GL_LINK_STATUS, &success);
+  if (!success)
+  {
+    char infoLog[1024];
+    glGetProgramInfoLog(lightShader.getId(), 1024, NULL, infoLog);
+    std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n"
+              << infoLog << std::endl;
+  }
 }
 
 Renderer::~Renderer()
@@ -76,17 +85,36 @@ Renderer::~Renderer()
   glfwTerminate();
 }
 
-void Renderer::drawLights()
+void Renderer::drawLights(glm::mat4 view, glm::mat4 projection)
 {
   for (unsigned int i = 0; i < lights.size(); i++)
   {
+    glm::mat4 model = lights[i].model.getModelMatrix();
+
     lightShader.bind();
-    lightShader.setVec3("color", glm::vec3(1.0f));
+
+    // Check uniform location
+    // GLint colorLoc = glGetUniformLocation(lightShader.getId(), "color");
+    // std::cout << "Color uniform location: " << colorLoc << std::endl;
+
+    // Check if shader is actually bound
+    // GLint currentProgram;
+    // glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
+    // std::cout << "Current shader program: " << currentProgram << std::endl;
+
+    lightShader.setMat4("model", model);
+    lightShader.setMat4("view", view);
+    lightShader.setMat4("projection", projection);
+    lightShader.setVec3("color", lights[i].color);
+
+    // std::cout << "Light color: " << lights[i].color.x << ", "
+    //           << lights[i].color.y << ", " << lights[i].color.z << std::endl;
+
     lights[i].model.draw(lightShader);
   }
 }
 
-void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader)
+void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader, Camera &camera)
 {
   while (!glfwWindowShouldClose(window))
   {
@@ -172,7 +200,9 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
     if (game_loop && window)
       game_loop(window, shader);
 
-    drawLights();
+    glm::mat4 view = camera.getViewMatrix();
+    glm::mat4 projection = glm::perspective(camera.getFov(), (float)Renderer::width / (float)Renderer::height, 0.1f, 100.0f);
+    drawLights(view, projection);
 
     for (unsigned int i = 0; i < models.size(); i++)
       models[i].draw(shader);
@@ -200,6 +230,11 @@ void Renderer::addLight(glm::vec3 position, glm::vec3 color)
 GLFWwindow *Renderer::getWindow()
 {
   return window;
+}
+
+Shader &Renderer::getLightShader()
+{
+  return lightShader;
 }
 
 void Renderer::setCursorMode(unsigned int mode)
