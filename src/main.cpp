@@ -32,7 +32,7 @@ int main()
 
   Shader def("../shaders/cube.vs", "../shaders/cube.fs");
 
-  Renderer::addLight(glm::vec3(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+  Renderer::addLight(glm::vec3(1.0f), glm::vec3(1.0f), 1.0f, POINT);
   Renderer::start(gameLoop, def, camera);
 
   return 0;
@@ -49,30 +49,14 @@ void gameLoop(GLFWwindow *window, Shader &shader)
   glm::mat4 view = camera.getViewMatrix();
   glm::mat4 projection = glm::perspective(camera.getFov(), (float)Renderer::width / (float)Renderer::height, 0.1f, 100.0f);
 
-  // Shader &lightShader = Renderer::getLightShader();
-  // lightShader.bind();
-  // lightShader.setMat4("view", view);
-  // lightShader.setMat4("projection", projection);
-
   shader.bind();
   shader.setMat4("view", view);
   shader.setMat4("projection", projection);
-  shader.setInt("numPointLights", 1);
-  shader.setInt("numDirectionalLights", 1);
-  shader.setInt("numSpotLights", 0);
 
-  shader.setVec3("directionalLights[0].direction", glm::vec3(0.3f, 0.4f, 0.0f));
-  shader.setVec3("directionalLights[0].ambient", glm::vec3(0.3f));
-  shader.setVec3("directionalLights[0].diffuse", glm::vec3(0.5f));
-  shader.setVec3("directionalLights[0].specular", glm::vec3(0.5f));
-
-  shader.setVec3("pointLights[0].position", glm::vec3(0.0f, 0.4f, 0.0f));
-  shader.setVec3("pointLights[0].ambient", glm::vec3(0.3f));
-  shader.setVec3("pointLights[0].diffuse", glm::vec3(1.0f));
-  shader.setVec3("pointLights[0].specular", glm::vec3(1.0f));
-  shader.setFloat("pointLights[0].constant", 1.0f);
-  shader.setFloat("pointLights[0].linear", 0.22f);
-  shader.setFloat("pointLights[0].quadratic", 0.20f);
+  // shader.setVec3("material.ambient", glm::vec3(1.0f, 0.5f, 0.31f));
+  // shader.setVec3("material.diffuse", glm::vec3(1.0f, 0.5f, 0.31f));
+  // shader.setVec3("material.specular", glm::vec3(0.5f, 0.5f, 0.5f));
+  shader.setFloat("material.shininess", 24.0f);
 }
 
 void framebufferSizeCallback(GLFWwindow *window, int width, int height)
