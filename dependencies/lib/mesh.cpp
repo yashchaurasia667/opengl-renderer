@@ -14,28 +14,31 @@ void Mesh::draw(Shader &shader)
 {
   shader.bind();
   // bind appropriate textures
-  unsigned int diffuseNr = 1;
-  unsigned int specularNr = 1;
-  unsigned int normalNr = 1;
-  unsigned int heightNr = 1;
+  unsigned int diffuseNr = 0;
+  unsigned int specularNr = 0;
+  unsigned int normalNr = 0;
+  unsigned int heightNr = 0;
   for (unsigned int i = 0; i < textures.size(); i++)
   {
     glCall(glActiveTexture(GL_TEXTURE0 + i));
 
     std::string number;
     std::string name = textures[i].type;
-    if (name == "texture_diffuse")
+    if (name == "material.diffuse")
       number = std::to_string(diffuseNr++);
-    else if (name == "texture_specular")
+    else if (name == "material.specular")
       number = std::to_string(specularNr++);
-    else if (name == "texture_normal")
+    else if (name == "material.normal")
       number = std::to_string(normalNr++);
-    else if (name == "texture_height")
+    else if (name == "material.height")
       number = std::to_string(heightNr++);
 
-    shader.setInt((name + number).c_str(), i);
+    shader.setInt((name + '[' + number + ']').c_str(), i);
     glCall(glBindTexture(GL_TEXTURE_2D, textures[i].id));
   }
+
+  shader.setInt("material.numDiffuseTextures", diffuseNr + 1);
+  shader.setInt("material.numSpecularTextures", specularNr + 1);
 
   // draw mesh
   glCall(glBindVertexArray(VAO));

@@ -22,7 +22,7 @@
 #include <map>
 #include <vector>
 
-// constructor, expects a filepath to a 3D model.
+// constructor, expects a filepath to a 3D model, position in world space, rotation, scale and gamma correction
 Model::Model(std::string const &path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale, bool gamma = false) : gammaCorrection(gamma)
 {
   this->rotation = rotation;
@@ -151,16 +151,16 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
   // normal: texture_normalN
 
   // 1. diffuse maps
-  std::vector<TextureType> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
+  std::vector<TextureType> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "material.diffuse");
   textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
   // 2. specular maps
-  std::vector<TextureType> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
+  std::vector<TextureType> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "material.specular");
   textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
   // 3. normal maps
-  std::vector<TextureType> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
+  std::vector<TextureType> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "material.normal");
   textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
   // 4. height maps
-  std::vector<TextureType> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
+  std::vector<TextureType> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "material.height");
   textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
 
   return Mesh(vertices, indices, textures);
