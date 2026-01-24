@@ -13,26 +13,26 @@ void gameLoop(GLFWwindow *window, Shader &shader);
 void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods);
 void mouseCallback(GLFWwindow *window, double xposin, double yposin);
 void scrollCallback(GLFWwindow *window, double xoffset, double yoffset);
-void processInput(GLFWwindow *window);
+void processInput(GLFWwindow *window, int key, int scancodoe, int action, int mods);
 void framebufferSizeCallback(GLFWwindow *window, int width, int height);
 void glfwErrorCallback(int error, const char *description);
 
-bool cursor = false;
 bool cameraMovement = false;
 
 Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), 45.0f, 0.1f, 2.5f);
 
 int main()
 {
-  Renderer ren("renderer window", 800, 600, "../resources/square.obj", "#version 330 core", true);
+  Renderer ren("renderer window", 1280, 720, "../resources/square.obj", "#version 330 core", true);
   Renderer::setFrameBufferCallback(framebufferSizeCallback);
   Renderer::setScrollCallback(scrollCallback);
-  Renderer::setMouseButtonCallback(mouseButtonCallback);
   Renderer::setErrorCallback(glfwErrorCallback);
+
+  Renderer::setMouseButtonCallback(mouseButtonCallback);
+  Renderer::setKeyCallback(processInput);
 
   Shader def("../shaders/cube.vs", "../shaders/cube.fs");
 
-  Renderer::addLight(glm::vec3(1.0f), glm::vec3(1.0f), 1.0f, POINT);
   Renderer::start(gameLoop, def, camera);
 
   return 0;
@@ -44,7 +44,8 @@ void gameLoop(GLFWwindow *window, Shader &shader)
   glCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 
   camera.updateFrame();
-  processInput(window);
+  if (cameraMovement)
+    camera.processMovement(Renderer::getWindow());
 
   glm::mat4 view = camera.getViewMatrix();
   glm::mat4 projection = glm::perspective(camera.getFov(), (float)Renderer::width / (float)Renderer::height, 0.1f, 100.0f);
@@ -53,9 +54,6 @@ void gameLoop(GLFWwindow *window, Shader &shader)
   shader.setMat4("view", view);
   shader.setMat4("projection", projection);
 
-  // shader.setVec3("material.ambient", glm::vec3(1.0f, 0.5f, 0.31f));
-  // shader.setVec3("material.diffuse", glm::vec3(1.0f, 0.5f, 0.31f));
-  // shader.setVec3("material.specular", glm::vec3(0.5f, 0.5f, 0.5f));
   shader.setFloat("material.shininess", 24.0f);
 }
 
@@ -66,17 +64,10 @@ void framebufferSizeCallback(GLFWwindow *window, int width, int height)
   glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow *window)
+void processInput(GLFWwindow *window, int key, int scancode, int action, int mods)
 {
-  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
     glfwSetWindowShouldClose(window, true);
-  if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
-  {
-    glfwSetInputMode(window, GLFW_CURSOR, cursor ? GLFW_CURSOR_DISABLED : GLFW_CURSOR_NORMAL);
-    cursor = !cursor;
-  }
-  if (cameraMovement)
-    camera.processMovement(window);
 }
 
 void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
@@ -84,8 +75,8 @@ void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
   if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
   {
     Renderer::setCursorMode(GLFW_CURSOR_DISABLED);
-    cameraMovement = true;
     Renderer::setCursorPosCallback(mouseCallback);
+    cameraMovement = true;
   }
   else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE)
   {

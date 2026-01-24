@@ -14,12 +14,30 @@ Shader Renderer::lightShader;
 
 float Renderer::main_scale = 0.0f;
 ImGuiIO *Renderer::io = nullptr;
+
 GLFWmousebuttonfun Renderer::glfw_mouse_button_callback = nullptr;
+GLFWkeyfun Renderer::glfw_key_callback = nullptr;
 
 void GLFWMouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
 {
-  if (Renderer::glfw_mouse_button_callback)
+  ImGui_ImplGlfw_MouseButtonCallback(window, button, action, mods);
+  if (Renderer::glfw_mouse_button_callback && !ImGui::GetIO().WantCaptureMouse)
     Renderer::glfw_mouse_button_callback(window, button, action, mods);
+}
+
+void GLFWKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+{
+  ImGui_ImplGlfw_KeyCallback(window, key, scancode, action, mods);
+
+  // Only process game input if ImGui isn't capturing keyboard
+  if (ImGui::GetIO().WantCaptureKeyboard)
+    return;
+  Renderer::glfw_key_callback(window, key, scancode, action, mods);
+}
+
+void GLFWCharCallback(GLFWwindow *window, unsigned int c)
+{
+  ImGui_ImplGlfw_CharCallback(window, c);
 }
 
 Renderer::Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version, bool vsync = false)
@@ -49,7 +67,6 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
     throw std::runtime_error("Failed to load OpenGL function pointers");
 
   glCall(glEnable(GL_DEPTH_TEST));
-  glfwSetMouseButtonCallback(window, GLFWMouseButtonCallback);
 
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
@@ -57,8 +74,12 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
   io->ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
   io->ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
 
-  ImGui_ImplGlfw_InitForOpenGL(window, true);
+  ImGui_ImplGlfw_InitForOpenGL(window, false);
   ImGui_ImplOpenGL3_Init(glsl_version);
+
+  glfwSetCharCallback(window, ImGui_ImplGlfw_CharCallback);
+  glfwSetKeyCallback(window, GLFWKeyCallback);
+  glfwSetMouseButtonCallback(window, GLFWMouseButtonCallback);
 
   lightShader = Shader("../shaders/light.vs", "../shaders/light.fs");
   GLint success;
@@ -129,7 +150,7 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
 
     // ADD MODEL WINDOW
     {
-      static char path[128] = "../resources/donut/donut.obj";
+      static char path[128] = "../resources/monkey/monkey.obj";
       static float px = 0, py = 0, pz = 0;
       static float rx = 0, ry = 0;
       static float scale = 1.0;
@@ -195,6 +216,46 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
             ImGui::Text("(%.1f, %.1f, %.1f)", lights[i].color.x, lights[i].color.y, lights[i].color.z);
           }
         }
+      }
+
+      ImGui::End();
+    }
+    // ADD LIGHTS
+    {
+      static float px = 0, py = 0, pz = 0;
+      static float r = 1.0f, g = 1.0f, b = 1.0f;
+      static float strength = 1.0;
+      static int index = 0;
+      const char *type[] = {"POINT", "DIRECTIONAL", "SPOT"};
+
+      ImGui::Begin("Add Lights");
+
+      ImGui::Text("Position");
+      ImGui::InputFloat("px", &px);
+      ImGui::InputFloat("py", &py);
+      ImGui::InputFloat("pz", &pz);
+
+      ImGui::Text("Color");
+      ImGui::InputFloat("r", &r);
+      ImGui::InputFloat("g", &g);
+      ImGui::InputFloat("b", &b);
+
+      // ImGui::Text("Type");
+      ImGui::Combo("Type", &index, type, IM_ARRAYSIZE(type));
+
+      ImGui::InputFloat("Strength", &strength);
+
+      if (ImGui::Button("Add Light"))
+      {
+        std::cout << "Adding light: " << type[index] << std::endl;
+
+        LightTypeList lightType = POINT;
+        if (strncmp(type[index], "DIRECTIONAL", 11) == 0)
+          lightType = DIRECTIONAL;
+        else if (strncmp(type[index], "SPOT", 4) == 0)
+          lightType = SPOT;
+
+        addLight(glm::vec3(px, py, pz), glm::vec3(r, g, b), strength, lightType);
       }
 
       ImGui::End();
@@ -267,8 +328,12 @@ void Renderer::setCursorPosCallback(GLFWcursorposfun callback)
 
 void Renderer::setMouseButtonCallback(GLFWmousebuttonfun callback)
 {
-  // glfwSetMouseButtonCallback(window, callback);
   glfw_mouse_button_callback = callback;
+}
+
+void Renderer::setKeyCallback(GLFWkeyfun callback)
+{
+  glfw_key_callback = callback;
 }
 
 void Renderer::setScrollCallback(GLFWscrollfun callback)

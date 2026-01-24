@@ -47,6 +47,7 @@ public:
   static int width, height;
   static float ambient, diffuse, specular;
   static GLFWmousebuttonfun glfw_mouse_button_callback;
+  static GLFWkeyfun glfw_key_callback;
 
   Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version, bool vsync);
   ~Renderer();
@@ -56,10 +57,13 @@ public:
 
   static GLFWwindow *getWindow();
   static Shader &getLightShader();
+
+  static void setMouseButtonCallback(GLFWmousebuttonfun callback);
+  static void setKeyCallback(GLFWkeyfun callback);
+
   static void setCursorMode(unsigned int mode);
   static void setFrameBufferCallback(GLFWframebuffersizefun callback);
   static void setCursorPosCallback(GLFWcursorposfun callback);
-  static void setMouseButtonCallback(GLFWmousebuttonfun callback);
   static void setScrollCallback(GLFWscrollfun callback);
   static void setErrorCallback(GLFWerrorfun callback);
 };
