@@ -24,12 +24,29 @@ enum LightTypeList
   SPOT
 };
 
-struct LightType
+struct PointLight
 {
   Model model;
   glm::vec3 color;
   float strength;
-  LightTypeList type;
+};
+
+struct DirectionalLight
+{
+  glm::vec3 direction;
+  glm::vec3 color;
+  float strength;
+};
+
+struct SpotLight
+{
+  Model model;
+  glm::vec3 direction;
+  glm::vec3 color;
+
+  float cutoff;
+  float oCutoff;
+  float strength;
 };
 
 class Renderer
@@ -38,7 +55,11 @@ private:
   static float main_scale;
   static GLFWwindow *window;
   static std::vector<Model> models;
-  static std::vector<LightType> lights;
+
+  static std::vector<PointLight> pointLights;
+  static std::vector<DirectionalLight> directionalLights;
+  static std::vector<SpotLight> spotLights;
+
   static ImGuiIO *io;
   static Shader lightShader;
   static void drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader);
@@ -53,7 +74,7 @@ public:
   ~Renderer();
   static void start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader, Camera &camera);
   static void addModel(std::string path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale);
-  static void addLight(glm::vec3 position, glm::vec3 color, float strength, LightTypeList type);
+  static void addLight(glm::vec3 color, float strength, LightTypeList type, glm::vec3 position, glm::vec3 direction, float cutoff, float outer_cutoff);
 
   static GLFWwindow *getWindow();
   static Shader &getLightShader();
