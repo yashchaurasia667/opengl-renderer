@@ -193,14 +193,14 @@ void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
     lightShader.setVec3("color", spotLights[i].color);
     spotLights[i].model.draw(lightShader);
 
-    std::string lightstr = "spotLights";
+    std::string lightstr = "spotlights";
     lightstr += "[" + std::to_string(i) + "]";
     shader.bind();
     shader.setVec3((lightstr + ".position").c_str(), spotLights[i].model.position);
     shader.setVec3((lightstr + ".direction").c_str(), spotLights[i].direction);
     shader.setVec3((lightstr + ".color").c_str(), spotLights[i].color);
 
-    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(1.0f));
+    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(0.05f));
     shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
     shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
 
@@ -209,8 +209,8 @@ void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
     shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
     shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
 
-    shader.setFloat((lightstr + ".cutOff").c_str(), spotLights[i].cutoff);
-    shader.setFloat((lightstr + ".outerCutOff").c_str(), spotLights[i].oCutoff);
+    shader.setFloat((lightstr + ".cutOff").c_str(), glm::radians(spotLights[i].cutoff));
+    shader.setFloat((lightstr + ".outerCutOff").c_str(), glm::radians(spotLights[i].oCutoff));
   }
 }
 
@@ -338,10 +338,10 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
     // ADD LIGHTS
     {
       static float px = 0, py = 0, pz = 0;
-      static float dx = 0, dy = 0, dz = 0;
+      static float dx = 0, dy = 0, dz = -1.0f;
       static float r = 1.0f, g = 1.0f, b = 1.0f;
       static float strength = 1.0;
-      static float cutoff = 30.0f, oCutoff = 45.0f;
+      static float cutoff = 15.0f, oCutoff = 20.0f;
       static int index = 0;
       const char *type[] = {"POINT", "DIRECTIONAL", "SPOTLIGHT"};
 
@@ -425,13 +425,13 @@ void Renderer::addLight(glm::vec3 color, float strength, LightTypeList type, glm
   switch (type)
   {
   case POINT:
-    pointLights.push_back({Model("../resources/light.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false), color, strength});
+    pointLights.push_back({Model("../resources/lights/pointLight.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false), color, strength});
     break;
   case DIRECTIONAL:
     directionalLights.push_back({direction, color, strength});
     break;
   case SPOT:
-    spotLights.push_back({Model("../resources/light.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false), direction, color, cutoff, outer_cutoff, strength});
+    spotLights.push_back({Model("../resources/lights/spotLight.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false), direction, color, cutoff, outer_cutoff, strength});
     break;
   };
 }
