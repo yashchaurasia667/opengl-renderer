@@ -9,8 +9,10 @@ int Renderer::width = 0;
 int Renderer::height = 0;
 float Renderer::ambient = 0.3f, Renderer::diffuse = 1.0f, Renderer::specular = 1.0f;
 
-std::vector<LightType> Renderer::lights;
 Shader Renderer::lightShader;
+std::vector<PointLight> Renderer::pointLights;
+std::vector<DirectionalLight> Renderer::directionalLights;
+std::vector<SpotLight> Renderer::spotLights;
 
 float Renderer::main_scale = 0.0f;
 ImGuiIO *Renderer::io = nullptr;
@@ -109,32 +111,106 @@ Renderer::~Renderer()
 
 void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
 {
-  for (unsigned int i = 0; i < lights.size(); i++)
+  // for (unsigned int i = 0; i < lights.size(); i++)
+  // {
+  //   if (lights[i].type == POINT)
+  //   {
+  //     glm::mat4 model = lights[i].model.getModelMatrix();
+
+  //     lightShader.bind();
+  //     lightShader.setMat4("model", model);
+  //     lightShader.setMat4("view", view);
+  //     lightShader.setMat4("projection", projection);
+  //     lightShader.setVec3("color", lights[i].color);
+  //     lights[i].model.draw(lightShader);
+  //   }
+
+  //   std::string lightstr = "pointLights";
+  //   lightstr += "[" + std::to_string(i) + "]";
+
+  //   shader.bind();
+  //   shader.setVec3((lightstr + ".position").c_str(), lights[i].model.position);
+  //   shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(ambient));
+  //   shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
+  //   shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
+  //   shader.setVec3((lightstr + ".color").c_str(), lights[i].color);
+  //   shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
+  //   shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
+  //   shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
+  // }
+
+  // DRAW ALL DIRECTIONAL LIGHTS
+  for (unsigned int i = 0; i < directionalLights.size(); i++)
   {
-    if (lights[i].type == POINT)
-    {
-      glm::mat4 model = lights[i].model.getModelMatrix();
-
-      lightShader.bind();
-      lightShader.setMat4("model", model);
-      lightShader.setMat4("view", view);
-      lightShader.setMat4("projection", projection);
-      lightShader.setVec3("color", lights[i].color);
-      lights[i].model.draw(lightShader);
-    }
-
-    std::string lightstr = "pointLights";
+    std::string lightstr = "directionalLights";
     lightstr += "[" + std::to_string(i) + "]";
-
     shader.bind();
-    shader.setVec3((lightstr + ".position").c_str(), lights[i].model.position);
+    shader.setVec3((lightstr + ".direction").c_str(), directionalLights[i].direction);
+    shader.setVec3((lightstr + ".color").c_str(), directionalLights[i].color);
+
+    shader.setFloat((lightstr + ".strength").c_str(), directionalLights[i].strength);
     shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(ambient));
     shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
     shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
-    shader.setVec3((lightstr + ".color").c_str(), lights[i].color);
+  }
+
+  // DRAW ALL POINT LIGHTS
+  for (unsigned int i = 0; i < pointLights.size(); i++)
+  {
+    glm::mat4 model = pointLights[i].model.getModelMatrix();
+    lightShader.bind();
+    lightShader.setMat4("model", model);
+    lightShader.setMat4("view", view);
+    lightShader.setMat4("projection", projection);
+    lightShader.setVec3("color", pointLights[i].color);
+    pointLights[i].model.draw(lightShader);
+
+    std::string lightstr = "pointLights";
+    lightstr += "[" + std::to_string(i) + "]";
+    shader.bind();
+    shader.setVec3((lightstr + ".position").c_str(), pointLights[i].model.position);
+    shader.setVec3((lightstr + ".color").c_str(), pointLights[i].color);
+
+    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(0.05f));
+    shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
+    shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
+
+    shader.setFloat((lightstr + ".strength").c_str(), pointLights[i].strength);
     shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
     shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
     shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
+  }
+
+  // DRAW ALL SPOTLIGHTS
+  for (unsigned int i = 0; i < spotLights.size(); i++)
+  {
+    glm::mat4 model = spotLights[i].model.getModelMatrix();
+
+    lightShader.bind();
+    lightShader.setMat4("model", model);
+    lightShader.setMat4("view", view);
+    lightShader.setMat4("projection", projection);
+    lightShader.setVec3("color", spotLights[i].color);
+    spotLights[i].model.draw(lightShader);
+
+    std::string lightstr = "spotLights";
+    lightstr += "[" + std::to_string(i) + "]";
+    shader.bind();
+    shader.setVec3((lightstr + ".position").c_str(), spotLights[i].model.position);
+    shader.setVec3((lightstr + ".direction").c_str(), spotLights[i].direction);
+    shader.setVec3((lightstr + ".color").c_str(), spotLights[i].color);
+
+    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(1.0f));
+    shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
+    shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
+
+    shader.setFloat((lightstr + ".strength").c_str(), spotLights[i].strength);
+    shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
+    shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
+    shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
+
+    shader.setFloat((lightstr + ".cutOff").c_str(), spotLights[i].cutoff);
+    shader.setFloat((lightstr + ".outerCutOff").c_str(), spotLights[i].oCutoff);
   }
 }
 
@@ -205,15 +281,54 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
 
       if (ImGui::CollapsingHeader("Lights"))
       {
-        for (unsigned int i = 0; i < lights.size(); i++)
+        if (ImGui::CollapsingHeader("Point lights"))
         {
-          if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
+          for (unsigned int i = 0; i < pointLights.size(); i++)
           {
-            ImGui::Text("Position");
-            ImGui::Text("(%.1f, %.1f, %.1f)", lights[i].model.position.x, lights[i].model.position.y, lights[i].model.position.z);
+            if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
+            {
+              ImGui::Text("Position");
+              ImGui::Text("(%.1f, %.1f, %.1f)", pointLights[i].model.position.x, pointLights[i].model.position.y, pointLights[i].model.position.z);
 
-            ImGui::Text("Color");
-            ImGui::Text("(%.1f, %.1f, %.1f)", lights[i].color.x, lights[i].color.y, lights[i].color.z);
+              ImGui::Text("Color");
+              ImGui::Text("(%.1f, %.1f, %.1f)", pointLights[i].color.x, pointLights[i].color.y, pointLights[i].color.z);
+            }
+          }
+        }
+
+        if (ImGui::CollapsingHeader("Directional lights"))
+        {
+          for (unsigned int i = 0; i < directionalLights.size(); i++)
+          {
+            if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
+            {
+              ImGui::Text("Direction");
+              ImGui::Text("(%.1f, %.1f, %.1f)", directionalLights[i].direction.x, directionalLights[i].direction.y, directionalLights[i].direction.z);
+
+              ImGui::Text("Color");
+              ImGui::Text("(%.1f, %.1f, %.1f)", directionalLights[i].color.x, directionalLights[i].color.y, directionalLights[i].color.z);
+            }
+          }
+        }
+
+        if (ImGui::CollapsingHeader("Spotlights"))
+        {
+          for (unsigned int i = 0; i < spotLights.size(); i++)
+          {
+            if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
+            {
+              ImGui::Text("Position");
+              ImGui::Text("(%.1f, %.1f, %.1f)", spotLights[i].model.position.x, spotLights[i].model.position.y, spotLights[i].model.position.z);
+
+              ImGui::Text("Direction");
+              ImGui::Text("(%.1f, %.1f, %.1f)", spotLights[i].direction.x, spotLights[i].direction.y, spotLights[i].direction.z);
+
+              ImGui::Text("Color");
+              ImGui::Text("(%.1f, %.1f, %.1f)", spotLights[i].color.x, spotLights[i].color.y, spotLights[i].color.z);
+
+              ImGui::Text("Cutoff: %f", spotLights[i].cutoff);
+              ImGui::Text("Outer Cutoff: %f", spotLights[i].oCutoff);
+            }
           }
         }
       }
@@ -223,39 +338,57 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
     // ADD LIGHTS
     {
       static float px = 0, py = 0, pz = 0;
+      static float dx = 0, dy = 0, dz = 0;
       static float r = 1.0f, g = 1.0f, b = 1.0f;
       static float strength = 1.0;
+      static float cutoff = 30.0f, oCutoff = 45.0f;
       static int index = 0;
-      const char *type[] = {"POINT", "DIRECTIONAL", "SPOT"};
+      const char *type[] = {"POINT", "DIRECTIONAL", "SPOTLIGHT"};
 
       ImGui::Begin("Add Lights");
 
-      ImGui::Text("Position");
-      ImGui::InputFloat("px", &px);
-      ImGui::InputFloat("py", &py);
-      ImGui::InputFloat("pz", &pz);
+      // if type is any other than directional
+      if (index != 1)
+      {
+        ImGui::Text("Position");
+        ImGui::InputFloat("px", &px);
+        ImGui::InputFloat("py", &py);
+        ImGui::InputFloat("pz", &pz);
+      }
+
+      // if type is any other than point
+      if (index != 0)
+      {
+        ImGui::Text("Direction");
+        ImGui::InputFloat("dx", &dx);
+        ImGui::InputFloat("dy", &dy);
+        ImGui::InputFloat("dz", &dz);
+      }
 
       ImGui::Text("Color");
       ImGui::InputFloat("r", &r);
       ImGui::InputFloat("g", &g);
       ImGui::InputFloat("b", &b);
 
-      // ImGui::Text("Type");
-      ImGui::Combo("Type", &index, type, IM_ARRAYSIZE(type));
+      // only aplicable for spotlights
+      if (index == 2)
+      {
+        ImGui::InputFloat("CutOff", &cutoff);
+        ImGui::InputFloat("Outer CutOff", &oCutoff);
+      }
 
-      ImGui::InputFloat("Strength", &strength);
+      ImGui::Combo("Type", &index, type, IM_ARRAYSIZE(type));
+      ImGui::SliderFloat("Strength", &strength, 0.0f, 1.0f, "%.2f");
 
       if (ImGui::Button("Add Light"))
       {
-        std::cout << "Adding light: " << type[index] << std::endl;
-
         LightTypeList lightType = POINT;
         if (strncmp(type[index], "DIRECTIONAL", 11) == 0)
           lightType = DIRECTIONAL;
         else if (strncmp(type[index], "SPOT", 4) == 0)
           lightType = SPOT;
 
-        addLight(glm::vec3(px, py, pz), glm::vec3(r, g, b), strength, lightType);
+        addLight(glm::vec3(r, g, b), strength, lightType, glm::vec3(px, py, pz), glm::vec3(dx, dy, dz), cutoff, oCutoff);
       }
 
       ImGui::End();
@@ -264,9 +397,9 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
     if (game_loop && window)
       game_loop(window, shader);
 
-    shader.setInt("numPointLights", lights.size());
-    shader.setInt("numDirectionalLights", 0);
-    shader.setInt("numSpotLights", 0);
+    shader.setInt("numPointLights", pointLights.size());
+    shader.setInt("numDirectionalLights", directionalLights.size());
+    shader.setInt("numSpotLights", spotLights.size());
 
     glm::mat4 view = camera.getViewMatrix();
     glm::mat4 projection = glm::perspective(camera.getFov(), (float)Renderer::width / (float)Renderer::height, 0.1f, 100.0f);
@@ -286,16 +419,21 @@ void Renderer::addModel(std::string path, glm::vec3 position, glm::vec2 rotation
   models.push_back(Model(path, position, rotation, scale, false));
 }
 
-void Renderer::addLight(glm::vec3 position, glm::vec3 color, float strength, LightTypeList type)
+void Renderer::addLight(glm::vec3 color, float strength, LightTypeList type, glm::vec3 position, glm::vec3 direction, float cutoff, float outer_cutoff)
 {
-  Model lightModel("../resources/light.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false);
-  LightType light = {
-      lightModel,
-      color,
-      strength,
-      type,
+  std::cout << "Adding light: " << type << std::endl;
+  switch (type)
+  {
+  case POINT:
+    pointLights.push_back({Model("../resources/light.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false), color, strength});
+    break;
+  case DIRECTIONAL:
+    directionalLights.push_back({direction, color, strength});
+    break;
+  case SPOT:
+    spotLights.push_back({Model("../resources/light.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false), direction, color, cutoff, outer_cutoff, strength});
+    break;
   };
-  lights.push_back(light);
 }
 
 GLFWwindow *Renderer::getWindow()
