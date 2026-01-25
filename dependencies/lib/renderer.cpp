@@ -111,34 +111,6 @@ Renderer::~Renderer()
 
 void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
 {
-  // for (unsigned int i = 0; i < lights.size(); i++)
-  // {
-  //   if (lights[i].type == POINT)
-  //   {
-  //     glm::mat4 model = lights[i].model.getModelMatrix();
-
-  //     lightShader.bind();
-  //     lightShader.setMat4("model", model);
-  //     lightShader.setMat4("view", view);
-  //     lightShader.setMat4("projection", projection);
-  //     lightShader.setVec3("color", lights[i].color);
-  //     lights[i].model.draw(lightShader);
-  //   }
-
-  //   std::string lightstr = "pointLights";
-  //   lightstr += "[" + std::to_string(i) + "]";
-
-  //   shader.bind();
-  //   shader.setVec3((lightstr + ".position").c_str(), lights[i].model.position);
-  //   shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(ambient));
-  //   shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
-  //   shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
-  //   shader.setVec3((lightstr + ".color").c_str(), lights[i].color);
-  //   shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
-  //   shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
-  //   shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
-  // }
-
   // DRAW ALL DIRECTIONAL LIGHTS
   for (unsigned int i = 0; i < directionalLights.size(); i++)
   {
