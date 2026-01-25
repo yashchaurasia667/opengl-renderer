@@ -18,7 +18,6 @@ A lightweight, cross-platform 3D rendering engine built using modern C++ and Ope
 
 ```text
 opengl-renderer/
-├── .vscode/          # VSCode workspace configurations
 ├── dependencies/     # External libraries (e.g., GLFW, GLAD/GLEW, GLM)
 ├── resources/        # Assets like 3D models and textures
 ├── shaders/          # GLSL vertex and fragment shaders
@@ -68,9 +67,6 @@ After a successful build, the executable will be located in the `build` director
 ./renderer.exe
 ```
 
-## 💻 Usage & Controls
-* *Add your specific camera controls, keyboard inputs, or GUI interactions here (e.g., WASD to move, Mouse to look around).*
-
 ## 🤝 Contributing
 Contributions are welcome! If you'd like to improve the renderer, add new shaders, or fix bugs, feel free to open an issue or submit a pull request.
 
@@ -79,6 +75,3 @@ Contributions are welcome! If you'd like to improve the renderer, add new shader
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
