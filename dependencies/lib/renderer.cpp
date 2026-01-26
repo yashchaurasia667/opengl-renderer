@@ -9,9 +9,13 @@ int Renderer::width = 0;
 int Renderer::height = 0;
 float Renderer::ambient = 0.3f, Renderer::diffuse = 1.0f, Renderer::specular = 1.0f;
 
+bool Renderer::dirLightEnabled = true;
 Shader Renderer::lightShader;
+DirectionalLight Renderer::dirLight = {
+    glm::vec3(0.0f),
+    glm::vec3(1.0f),
+    1.0f};
 std::vector<PointLight> Renderer::pointLights;
-std::vector<DirectionalLight> Renderer::directionalLights;
 std::vector<SpotLight> Renderer::spotLights;
 
 float Renderer::main_scale = 0.0f;
@@ -111,19 +115,16 @@ Renderer::~Renderer()
 
 void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
 {
-  // DRAW ALL DIRECTIONAL LIGHTS
-  for (unsigned int i = 0; i < directionalLights.size(); i++)
+  // DRAW DIRECTIONAL LIGHT
+  if (dirLightEnabled)
   {
-    std::string lightstr = "directionalLights";
-    lightstr += "[" + std::to_string(i) + "]";
     shader.bind();
-    shader.setVec3((lightstr + ".direction").c_str(), directionalLights[i].direction);
-    shader.setVec3((lightstr + ".color").c_str(), directionalLights[i].color);
-
-    shader.setFloat((lightstr + ".strength").c_str(), directionalLights[i].strength);
-    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(ambient));
-    shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
-    shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
+    shader.setVec3("directionalLights[0].direction", dirLight.direction);
+    shader.setVec3("directionalLights[0].color", dirLight.color);
+    shader.setFloat("directionalLights[0].strength", dirLight.strength);
+    shader.setVec3("directionalLights[0].ambient", glm::vec3(ambient));
+    shader.setVec3("directionalLights[0].diffuse", glm::vec3(diffuse));
+    shader.setVec3("directionalLights[0].specular", glm::vec3(specular));
   }
 
   // DRAW ALL POINT LIGHTS
@@ -268,21 +269,6 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
           }
         }
 
-        if (ImGui::CollapsingHeader("Directional lights"))
-        {
-          for (unsigned int i = 0; i < directionalLights.size(); i++)
-          {
-            if (ImGui::CollapsingHeader(std::to_string(i).c_str()))
-            {
-              ImGui::Text("Direction");
-              ImGui::Text("(%.1f, %.1f, %.1f)", directionalLights[i].direction.x, directionalLights[i].direction.y, directionalLights[i].direction.z);
-
-              ImGui::Text("Color");
-              ImGui::Text("(%.1f, %.1f, %.1f)", directionalLights[i].color.x, directionalLights[i].color.y, directionalLights[i].color.z);
-            }
-          }
-        }
-
         if (ImGui::CollapsingHeader("Spotlights"))
         {
           for (unsigned int i = 0; i < spotLights.size(); i++)
@@ -315,7 +301,7 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
       static float strength = 1.0;
       static float cutoff = 15.0f, oCutoff = 20.0f;
       static int index = 0;
-      const char *type[] = {"POINT", "DIRECTIONAL", "SPOTLIGHT"};
+      const char *type[] = {"POINT", "SPOTLIGHT"};
 
       ImGui::Begin("Add Lights");
 
@@ -355,13 +341,29 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
       if (ImGui::Button("Add Light"))
       {
         LightTypeList lightType = POINT;
-        if (strncmp(type[index], "DIRECTIONAL", 11) == 0)
-          lightType = DIRECTIONAL;
-        else if (strncmp(type[index], "SPOT", 4) == 0)
+        if (index == SPOT)
           lightType = SPOT;
 
         addLight(glm::vec3(r, g, b), strength, lightType, glm::vec3(px, py, pz), glm::vec3(dx, dy, dz), cutoff, oCutoff);
       }
+
+      ImGui::End();
+    }
+    // CHANGE/TOGGLE DIRECTIONAL LIGHT
+    {
+      ImGui::Begin("Directional Light");
+
+      ImGui::Text("Direction");
+      ImGui::SliderFloat("x", &dirLight.direction.x, -1.0f, 1.0f, "%.2f");
+      ImGui::SliderFloat("y", &dirLight.direction.y, -1.0f, 1.0f, "%.2f");
+      ImGui::SliderFloat("z", &dirLight.direction.z, -1.0f, 1.0f, "%.2f");
+
+      ImGui::Text("Color");
+      ImGui::SliderFloat("r", &dirLight.color.r, 0.0f, 1.0f, "%.2f");
+      ImGui::SliderFloat("g", &dirLight.color.g, 0.0f, 1.0f, "%.2f");
+      ImGui::SliderFloat("b", &dirLight.color.b, 0.0f, 1.0f, "%.2f");
+
+      ImGui::SliderFloat("Strength", &dirLight.strength, 0.0f, 1.0f, "%.2f");
 
       ImGui::End();
     }
@@ -370,7 +372,7 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
       game_loop(window, shader);
 
     shader.setInt("numPointLights", pointLights.size());
-    shader.setInt("numDirectionalLights", directionalLights.size());
+    shader.setInt("numDirectionalLights", 1);
     shader.setInt("numSpotLights", spotLights.size());
 
     glm::mat4 view = camera.getViewMatrix();
@@ -398,9 +400,6 @@ void Renderer::addLight(glm::vec3 color, float strength, LightTypeList type, glm
   {
   case POINT:
     pointLights.push_back({Model("../resources/lights/pointLight.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false), color, strength});
-    break;
-  case DIRECTIONAL:
-    directionalLights.push_back({direction, color, strength});
     break;
   case SPOT:
     spotLights.push_back({Model("../resources/lights/spotLight.obj", position, glm::vec2(0.0f), glm::vec3(1.0f), false), direction, color, cutoff, outer_cutoff, strength});

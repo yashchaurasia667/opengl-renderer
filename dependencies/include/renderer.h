@@ -19,7 +19,6 @@
 
 enum LightTypeList
 {
-  DIRECTIONAL,
   POINT,
   SPOT
 };
@@ -56,8 +55,9 @@ private:
   static GLFWwindow *window;
   static std::vector<Model> models;
 
+  static bool dirLightEnabled;
+  static DirectionalLight dirLight;
   static std::vector<PointLight> pointLights;
-  static std::vector<DirectionalLight> directionalLights;
   static std::vector<SpotLight> spotLights;
 
   static ImGuiIO *io;
