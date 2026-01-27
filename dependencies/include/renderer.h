@@ -48,6 +48,13 @@ struct SpotLight
   float strength;
 };
 
+struct Skybox {
+  VertexArray vao;
+  VertexBuffer vbo;
+  unsigned int texId;
+  Shader shader;
+};
+
 class Renderer
 {
 private:
@@ -59,6 +66,7 @@ private:
   static DirectionalLight dirLight;
   static std::vector<PointLight> pointLights;
   static std::vector<SpotLight> spotLights;
+  // static Skybox skybox;
 
   static ImGuiIO *io;
   static Shader lightShader;
@@ -78,6 +86,7 @@ public:
 
   static GLFWwindow *getWindow();
   static Shader &getLightShader();
+  // static void setSkyBox(std::string path, std::string format);
 
   static void setMouseButtonCallback(GLFWmousebuttonfun callback);
   static void setKeyCallback(GLFWkeyfun callback);

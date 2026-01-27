@@ -1,7 +1,10 @@
 #include "renderer.h"
 #include <iostream>
 #include <stdexcept>
+#include <stb_image.h>
 #include <utils.h>
+
+// ------------------------- STATIC MEMBER DECLERATION ----------------------------------
 
 GLFWwindow *Renderer::window = nullptr;
 std::vector<Model> Renderer::models;
@@ -10,7 +13,6 @@ int Renderer::height = 0;
 float Renderer::ambient = 0.3f, Renderer::diffuse = 1.0f, Renderer::specular = 1.0f;
 
 bool Renderer::dirLightEnabled = true;
-Shader Renderer::lightShader;
 DirectionalLight Renderer::dirLight = {
     glm::vec3(0.0f),
     glm::vec3(1.0f),
@@ -20,9 +22,15 @@ std::vector<SpotLight> Renderer::spotLights;
 
 float Renderer::main_scale = 0.0f;
 ImGuiIO *Renderer::io = nullptr;
+Shader Renderer::lightShader;
+
+// Skybox Renderer::skybox;
 
 GLFWmousebuttonfun Renderer::glfw_mouse_button_callback = nullptr;
 GLFWkeyfun Renderer::glfw_key_callback = nullptr;
+unsigned int loadSkyboxTexture(std::string path, std::string format);
+
+// ------------------------- GLFW CALLBACK FUNCTIONS ------------------------------------
 
 void GLFWMouseButtonCallback(GLFWwindow *window, int button, int action, int mods)
 {
@@ -45,6 +53,8 @@ void GLFWCharCallback(GLFWwindow *window, unsigned int c)
 {
   ImGui_ImplGlfw_CharCallback(window, c);
 }
+
+// ------------------------- RENDERER CONSTRUCTORS/DESTRUCTORS --------------------------
 
 Renderer::Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version, bool vsync = false)
 {
@@ -88,15 +98,59 @@ Renderer::Renderer(const char *title, int width, int height, const char *object_
   glfwSetMouseButtonCallback(window, GLFWMouseButtonCallback);
 
   lightShader = Shader("../shaders/light.vs", "../shaders/light.fs");
-  GLint success;
-  glGetProgramiv(lightShader.getId(), GL_LINK_STATUS, &success);
-  if (!success)
-  {
-    char infoLog[1024];
-    glGetProgramInfoLog(lightShader.getId(), 1024, NULL, infoLog);
-    std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n"
-              << infoLog << std::endl;
-  }
+
+  // INITIALIZE SKYBOX
+  // float skyboxVertices[] = {
+  //     // positions
+  //     -1.0f, 1.0f, -1.0f,
+  //     -1.0f, -1.0f, -1.0f,
+  //     1.0f, -1.0f, -1.0f,
+  //     1.0f, -1.0f, -1.0f,
+  //     1.0f, 1.0f, -1.0f,
+  //     -1.0f, 1.0f, -1.0f,
+
+  //     -1.0f, -1.0f, 1.0f,
+  //     -1.0f, -1.0f, -1.0f,
+  //     -1.0f, 1.0f, -1.0f,
+  //     -1.0f, 1.0f, -1.0f,
+  //     -1.0f, 1.0f, 1.0f,
+  //     -1.0f, -1.0f, 1.0f,
+
+  //     1.0f, -1.0f, -1.0f,
+  //     1.0f, -1.0f, 1.0f,
+  //     1.0f, 1.0f, 1.0f,
+  //     1.0f, 1.0f, 1.0f,
+  //     1.0f, 1.0f, -1.0f,
+  //     1.0f, -1.0f, -1.0f,
+
+  //     -1.0f, -1.0f, 1.0f,
+  //     -1.0f, 1.0f, 1.0f,
+  //     1.0f, 1.0f, 1.0f,
+  //     1.0f, 1.0f, 1.0f,
+  //     1.0f, -1.0f, 1.0f,
+  //     -1.0f, -1.0f, 1.0f,
+
+  //     -1.0f, 1.0f, -1.0f,
+  //     1.0f, 1.0f, -1.0f,
+  //     1.0f, 1.0f, 1.0f,
+  //     1.0f, 1.0f, 1.0f,
+  //     -1.0f, 1.0f, 1.0f,
+  //     -1.0f, 1.0f, -1.0f,
+
+  //     -1.0f, -1.0f, -1.0f,
+  //     -1.0f, -1.0f, 1.0f,
+  //     1.0f, -1.0f, -1.0f,
+  //     1.0f, -1.0f, -1.0f,
+  //     -1.0f, -1.0f, 1.0f,
+  //     1.0f, -1.0f, 1.0f};
+
+  // VertexBufferLayout layout;
+  // layout.push<float>(3);
+
+  // skybox.vbo.setData(sizeof(skyboxVertices), skyboxVertices, GL_STATIC_DRAW);
+  // skybox.vao.addBuffer(skybox.vbo, layout);
+  // skybox.texId = loadSkyboxTexture("../resources/default_skybox", "jpg");
+  // skybox.shader = Shader("../shaders/skybox.vs", "../shaders/skybox.fs");
 }
 
 Renderer::~Renderer()
@@ -113,79 +167,7 @@ Renderer::~Renderer()
   glfwTerminate();
 }
 
-void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
-{
-  // DRAW DIRECTIONAL LIGHT
-  if (dirLightEnabled)
-  {
-    shader.bind();
-    shader.setVec3("directionalLights[0].direction", dirLight.direction);
-    shader.setVec3("directionalLights[0].color", dirLight.color);
-    shader.setFloat("directionalLights[0].strength", dirLight.strength);
-    shader.setVec3("directionalLights[0].ambient", glm::vec3(ambient));
-    shader.setVec3("directionalLights[0].diffuse", glm::vec3(diffuse));
-    shader.setVec3("directionalLights[0].specular", glm::vec3(specular));
-  }
-
-  // DRAW ALL POINT LIGHTS
-  for (unsigned int i = 0; i < pointLights.size(); i++)
-  {
-    glm::mat4 model = pointLights[i].model.getModelMatrix();
-    lightShader.bind();
-    lightShader.setMat4("model", model);
-    lightShader.setMat4("view", view);
-    lightShader.setMat4("projection", projection);
-    lightShader.setVec3("color", pointLights[i].color);
-    pointLights[i].model.draw(lightShader);
-
-    std::string lightstr = "pointLights";
-    lightstr += "[" + std::to_string(i) + "]";
-    shader.bind();
-    shader.setVec3((lightstr + ".position").c_str(), pointLights[i].model.position);
-    shader.setVec3((lightstr + ".color").c_str(), pointLights[i].color);
-
-    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(0.05f));
-    shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
-    shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
-
-    shader.setFloat((lightstr + ".strength").c_str(), pointLights[i].strength);
-    shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
-    shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
-    shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
-  }
-
-  // DRAW ALL SPOTLIGHTS
-  for (unsigned int i = 0; i < spotLights.size(); i++)
-  {
-    glm::mat4 model = spotLights[i].model.getModelMatrix();
-
-    lightShader.bind();
-    lightShader.setMat4("model", model);
-    lightShader.setMat4("view", view);
-    lightShader.setMat4("projection", projection);
-    lightShader.setVec3("color", spotLights[i].color);
-    spotLights[i].model.draw(lightShader);
-
-    std::string lightstr = "spotlights";
-    lightstr += "[" + std::to_string(i) + "]";
-    shader.bind();
-    shader.setVec3((lightstr + ".position").c_str(), spotLights[i].model.position);
-    shader.setVec3((lightstr + ".direction").c_str(), spotLights[i].direction);
-    shader.setVec3((lightstr + ".color").c_str(), spotLights[i].color);
-
-    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(0.05f));
-    shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
-    shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
-
-    shader.setFloat((lightstr + ".strength").c_str(), spotLights[i].strength);
-    shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
-    shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
-    shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
-
-    shader.setFloat((lightstr + ".cutOff").c_str(), glm::radians(spotLights[i].cutoff));
-    shader.setFloat((lightstr + ".outerCutOff").c_str(), glm::radians(spotLights[i].oCutoff));
-  }
-}
+// ------------------------- MODIFYING FUNCITONS ----------------------------------------
 
 void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader, Camera &camera)
 {
@@ -306,13 +288,10 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
       ImGui::Begin("Add Lights");
 
       // if type is any other than directional
-      if (index != 1)
-      {
-        ImGui::Text("Position");
-        ImGui::InputFloat("px", &px);
-        ImGui::InputFloat("py", &py);
-        ImGui::InputFloat("pz", &pz);
-      }
+      ImGui::Text("Position");
+      ImGui::InputFloat("px", &px);
+      ImGui::InputFloat("py", &py);
+      ImGui::InputFloat("pz", &pz);
 
       // if type is any other than point
       if (index != 0)
@@ -382,6 +361,18 @@ void Renderer::start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shad
     for (unsigned int i = 0; i < models.size(); i++)
       models[i].draw(shader);
 
+    // DRAW SKYBOX
+    // glCall(glDepthFunc(GL_LEQUAL));
+    // skybox.shader.bind();
+    // skybox.shader.setMat4("view", glm::mat4(glm::mat3(view)));
+    // skybox.shader.setMat4("projection", projection);
+
+    // skybox.vao.bind();
+    // glCall(glActiveTexture(GL_TEXTURE0));
+    // glCall(glBindTexture(GL_TEXTURE_CUBE_MAP, skybox.texId));
+    // glCall(glDrawArrays(GL_TRIANGLES, 0, 36));
+    // glCall(glDepthFunc(GL_LESS));
+
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     glfwSwapBuffers(window);
@@ -407,6 +398,8 @@ void Renderer::addLight(glm::vec3 color, float strength, LightTypeList type, glm
   };
 }
 
+// ------------------------- GETTER FUNCTIONS -------------------------------------------
+
 GLFWwindow *Renderer::getWindow()
 {
   return window;
@@ -416,6 +409,13 @@ Shader &Renderer::getLightShader()
 {
   return lightShader;
 }
+
+// ------------------------- SETTER FUNCTIONS -------------------------------------------
+
+// void Renderer::setSkyBox(std::string path, std::string format)
+// {
+//   skybox.texId = loadSkyboxTexture(path, format);
+// }
 
 void Renderer::setCursorMode(unsigned int mode)
 {
@@ -455,4 +455,124 @@ void Renderer::setErrorCallback(GLFWerrorfun callback)
 {
   if (window)
     glfwSetErrorCallback(callback);
+}
+
+// ------------------------- HELPER FUNCTIONS ------------------------------------------
+
+void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
+{
+  // DRAW DIRECTIONAL LIGHT
+  if (dirLightEnabled)
+  {
+    shader.bind();
+    shader.setVec3("directionalLights[0].direction", dirLight.direction);
+    shader.setVec3("directionalLights[0].color", dirLight.color);
+    shader.setFloat("directionalLights[0].strength", dirLight.strength);
+    shader.setVec3("directionalLights[0].ambient", glm::vec3(ambient));
+    shader.setVec3("directionalLights[0].diffuse", glm::vec3(diffuse));
+    shader.setVec3("directionalLights[0].specular", glm::vec3(specular));
+  }
+
+  // DRAW ALL POINT LIGHTS
+  for (unsigned int i = 0; i < pointLights.size(); i++)
+  {
+    glm::mat4 model = pointLights[i].model.getModelMatrix();
+    lightShader.bind();
+    lightShader.setMat4("model", model);
+    lightShader.setMat4("view", view);
+    lightShader.setMat4("projection", projection);
+    lightShader.setVec3("color", pointLights[i].color);
+    pointLights[i].model.draw(lightShader);
+
+    std::string lightstr = "pointLights";
+    lightstr += "[" + std::to_string(i) + "]";
+    shader.bind();
+    shader.setVec3((lightstr + ".position").c_str(), pointLights[i].model.position);
+    shader.setVec3((lightstr + ".color").c_str(), pointLights[i].color);
+
+    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(0.05f));
+    shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
+    shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
+
+    shader.setFloat((lightstr + ".strength").c_str(), pointLights[i].strength);
+    shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
+    shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
+    shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
+  }
+
+  // DRAW ALL SPOTLIGHTS
+  for (unsigned int i = 0; i < spotLights.size(); i++)
+  {
+    glm::mat4 model = spotLights[i].model.getModelMatrix();
+
+    lightShader.bind();
+    lightShader.setMat4("model", model);
+    lightShader.setMat4("view", view);
+    lightShader.setMat4("projection", projection);
+    lightShader.setVec3("color", spotLights[i].color);
+    spotLights[i].model.draw(lightShader);
+
+    std::string lightstr = "spotlights";
+    lightstr += "[" + std::to_string(i) + "]";
+    shader.bind();
+    shader.setVec3((lightstr + ".position").c_str(), spotLights[i].model.position);
+    shader.setVec3((lightstr + ".direction").c_str(), spotLights[i].direction);
+    shader.setVec3((lightstr + ".color").c_str(), spotLights[i].color);
+
+    shader.setVec3((lightstr + ".ambient").c_str(), glm::vec3(0.05f));
+    shader.setVec3((lightstr + ".diffuse").c_str(), glm::vec3(diffuse));
+    shader.setVec3((lightstr + ".specular").c_str(), glm::vec3(specular));
+
+    shader.setFloat((lightstr + ".strength").c_str(), spotLights[i].strength);
+    shader.setFloat((lightstr + ".constant").c_str(), 1.0f);
+    shader.setFloat((lightstr + ".linear").c_str(), 0.22f);
+    shader.setFloat((lightstr + ".quadratic").c_str(), 0.20f);
+
+    shader.setFloat((lightstr + ".cutOff").c_str(), glm::radians(spotLights[i].cutoff));
+    shader.setFloat((lightstr + ".outerCutOff").c_str(), glm::radians(spotLights[i].oCutoff));
+  }
+}
+
+unsigned int loadSkyboxTexture(std::string path, std::string format)
+{
+  std::string texFaces[] = {"right", "left", "top", "bottom", "front", "back"};
+  unsigned int texId;
+  glCall(glGenTextures(1, &texId));
+  glCall(glBindTexture(GL_TEXTURE_CUBE_MAP, texId));
+
+  int width, height, nrChannels;
+  for (unsigned int i = 0; i < 6; i++)
+  {
+    std::string fullPath = path + "/" + texFaces[i] + "." + format;
+    unsigned char *data = stbi_load(fullPath.c_str(), &width, &height, &nrChannels, 0);
+    if (data)
+    {
+      unsigned int fmt = GL_RED;
+      switch (nrChannels)
+      {
+      case 3:
+        fmt = GL_RGB;
+        break;
+      case 4:
+        fmt = GL_RGBA;
+        break;
+      }
+
+      glCall(glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X + i, 0, fmt, width, height, 0, fmt, GL_UNSIGNED_BYTE, data));
+      stbi_image_free(data);
+    }
+    else
+    {
+      std::cout << "Cubemap tex failed to load at path: " << texFaces[i] << std::endl;
+      stbi_image_free(data);
+    }
+  }
+
+  glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
+  glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
+  glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE));
+  glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE));
+  glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE));
+
+  return texId;
 }
