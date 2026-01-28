@@ -45,6 +45,11 @@ void Mesh::draw(Shader &shader)
   glCall(glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0));
   glCall(glBindVertexArray(0));
 
+  for (unsigned int i = 0; i < textures.size(); i++)
+  {
+    glCall(glActiveTexture(GL_TEXTURE0 + i));
+    glCall(glBindTexture(GL_TEXTURE_2D, 0));
+  }
   glCall(glActiveTexture(GL_TEXTURE0));
 }
 

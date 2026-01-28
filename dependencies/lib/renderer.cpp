@@ -539,8 +539,9 @@ void Renderer::drawLights(glm::mat4 view, glm::mat4 projection, Shader &shader)
 
 unsigned int loadSkyboxTexture(std::string path, std::string format)
 {
-  std::string texFaces[] = {"left", "right", "bottom", "top", "back", "front"};
+  std::string texFaces[] = {"right", "left", "top", "bottom", "front", "back"};
   unsigned int texId;
+
   glCall(glGenTextures(1, &texId));
   glCall(glBindTexture(GL_TEXTURE_CUBE_MAP, texId));
 
@@ -563,7 +564,7 @@ unsigned int loadSkyboxTexture(std::string path, std::string format)
         break;
       }
 
-      glCall(glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X + i, 0, fmt, width, height, 0, fmt, GL_UNSIGNED_BYTE, data));
+      glCall(glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, fmt, width, height, 0, fmt, GL_UNSIGNED_BYTE, data));
       stbi_image_free(data);
     }
     else
@@ -572,11 +573,13 @@ unsigned int loadSkyboxTexture(std::string path, std::string format)
       stbi_image_free(data);
     }
   }
+
   glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
   glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
   glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE));
   glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE));
   glCall(glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE));
 
+  glCall(glBindTexture(GL_TEXTURE_CUBE_MAP, texId));
   return texId;
 }
