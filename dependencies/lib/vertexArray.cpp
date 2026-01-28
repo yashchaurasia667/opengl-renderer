@@ -20,7 +20,7 @@ VertexArray::~VertexArray()
 
 void VertexArray::bind()
 {
-  std::cout << "VERTEX_ARRAY::ID -> " << ID << std::endl;
+  // std::cout << "VERTEX_ARRAY::ID -> " << ID << std::endl;
   glCall(glBindVertexArray(ID));
 }
 
@@ -37,7 +37,7 @@ void VertexArray::addBuffer(VertexBuffer &vb, VertexBufferLayout &layout)
 
   for (unsigned int i = 0; i < elements->size(); i++)
   {
-    std::cout << "VERTEX_ARRAY::ATTRIB_ID -> " << i << std::endl;
+    // std::cout << "VERTEX_ARRAY::ATTRIB_ID -> " << i << std::endl;
     struct Attribute elm = (*elements)[i];
     glCall(glEnableVertexAttribArray(i));
     glCall(glVertexAttribPointer(i, elm.count, elm.type, elm.normalized, stride, (void *)static_cast<uintptr_t>(offset)));

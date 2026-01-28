@@ -39,6 +39,7 @@ target_include_directories(depends
 target_compile_options(depends
     PRIVATE
         -Wall
+        -Wextra
         -g
 )
 

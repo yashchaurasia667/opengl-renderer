@@ -23,7 +23,7 @@ Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), 45.0f, 0.1f, 2.5f);
 
 int main()
 {
-  Renderer ren("renderer window", 1280, 720, "../resources/square.obj", "#version 330 core", true);
+  Renderer ren("renderer window", 1280, 720, "#version 330 core", true);
   Renderer::setFrameBufferCallback(framebufferSizeCallback);
   Renderer::setScrollCallback(scrollCallback);
   Renderer::setErrorCallback(glfwErrorCallback);
