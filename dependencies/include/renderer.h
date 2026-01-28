@@ -19,7 +19,6 @@
 
 enum LightTypeList
 {
-  DIRECTIONAL,
   POINT,
   SPOT
 };
@@ -49,6 +48,15 @@ struct SpotLight
   float strength;
 };
 
+struct Skybox {
+  VertexArray vao;
+  VertexBuffer vbo;
+  unsigned int texId = 0;
+  Shader shader;
+
+  Skybox() = default;
+};
+
 class Renderer
 {
 private:
@@ -56,9 +64,11 @@ private:
   static GLFWwindow *window;
   static std::vector<Model> models;
 
+  static bool dirLightEnabled;
+  static DirectionalLight dirLight;
   static std::vector<PointLight> pointLights;
-  static std::vector<DirectionalLight> directionalLights;
   static std::vector<SpotLight> spotLights;
+  static Skybox *skybox;
 
   static ImGuiIO *io;
   static Shader lightShader;
@@ -70,7 +80,7 @@ public:
   static GLFWmousebuttonfun glfw_mouse_button_callback;
   static GLFWkeyfun glfw_key_callback;
 
-  Renderer(const char *title, int width, int height, const char *object_path, const char *glsl_version, bool vsync);
+  Renderer(const char *title, int width, int height, const char *glsl_version, bool vsync);
   ~Renderer();
   static void start(void (*game_loop)(GLFWwindow *window, Shader &shader), Shader &shader, Camera &camera);
   static void addModel(std::string path, glm::vec3 position, glm::vec2 rotation, glm::vec3 scale);
@@ -78,6 +88,7 @@ public:
 
   static GLFWwindow *getWindow();
   static Shader &getLightShader();
+  static void setSkyBox(std::string path, std::string format);
 
   static void setMouseButtonCallback(GLFWmousebuttonfun callback);
   static void setKeyCallback(GLFWkeyfun callback);
