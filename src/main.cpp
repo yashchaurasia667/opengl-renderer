@@ -32,6 +32,7 @@ int main()
   Renderer::setKeyCallback(processInput);
 
   Shader def("../shaders/cube.vs", "../shaders/cube.fs");
+  Renderer::setSkyBox("../resources/skyboxes/sky3", "png");
 
   Renderer::start(gameLoop, def, camera);
 

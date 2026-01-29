@@ -544,11 +544,12 @@ unsigned int loadSkyboxTexture(std::string path, std::string format)
 
   glCall(glGenTextures(1, &texId));
   glCall(glBindTexture(GL_TEXTURE_CUBE_MAP, texId));
+  path += '/';
 
   int width, height, nrChannels;
   for (unsigned int i = 0; i < 6; i++)
   {
-    std::string fullPath = path + "/" + texFaces[i] + "." + format;
+    std::string fullPath = path + texFaces[i] + "." + format;
     unsigned char *data = stbi_load(fullPath.c_str(), &width, &height, &nrChannels, 0);
 
     if (data)
